@@ -10,6 +10,7 @@
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            DatabaseConfig.RegisterDatabase();
             ViewEnginesConfig.RegisterViewEngines(ViewEngines.Engines);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
