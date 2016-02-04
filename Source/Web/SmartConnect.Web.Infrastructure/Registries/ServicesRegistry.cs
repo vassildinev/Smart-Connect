@@ -3,11 +3,11 @@
     using System;
     using System.Linq;
 
-    using Common.Constants;
     using Contracts;
     using Ninject;
     using Ninject.Extensions.Conventions;
     using Ninject.Web.Common;
+    using SmartConnect.Common.Constants;
 
     public class ServicesRegistry : INinjectRegistry
     {

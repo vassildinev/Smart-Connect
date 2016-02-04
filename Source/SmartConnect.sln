@@ -37,6 +37,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F259CB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Common.Constants", "Common\SmartConnect.Common.Constants\SmartConnect.Common.Constants.csproj", "{C63B2317-AF3A-4334-A4FE-D3DC00A4E247}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Common.Exceptions", "Common\SmartConnect.Common.Exceptions\SmartConnect.Common.Exceptions.csproj", "{DA384152-DB36-4579-864D-08BCE61775C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{C63B2317-AF3A-4334-A4FE-D3DC00A4E247}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C63B2317-AF3A-4334-A4FE-D3DC00A4E247}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C63B2317-AF3A-4334-A4FE-D3DC00A4E247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA384152-DB36-4579-864D-08BCE61775C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA384152-DB36-4579-864D-08BCE61775C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA384152-DB36-4579-864D-08BCE61775C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA384152-DB36-4579-864D-08BCE61775C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,5 +114,6 @@ Global
 		{45D28A23-2D93-417A-92F6-F910BB5FEFDC} = {64619905-CE03-4B5B-AA2F-6A1C8C4C38B5}
 		{05686A25-6C67-4439-88CD-7FB7B6E460CC} = {1CD92A0A-5E2B-47D8-9B72-365CF0D284B9}
 		{C63B2317-AF3A-4334-A4FE-D3DC00A4E247} = {F259CBC2-AEFD-485E-ADF6-5B618DE5F2C9}
+		{DA384152-DB36-4579-864D-08BCE61775C5} = {F259CBC2-AEFD-485E-ADF6-5B618DE5F2C9}
 	EndGlobalSection
 EndGlobal

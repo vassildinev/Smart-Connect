@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{42096E54-A1E2-4381-83FC-79BB8BBB7743}</ProjectGuid>
+    <ProjectGuid>{DA384152-DB36-4579-864D-08BCE61775C5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartConnect.Web.Common</RootNamespace>
-    <AssemblyName>SmartConnect.Web.Common</AssemblyName>
+    <RootNamespace>SmartConnect.Common.Exceptions</RootNamespace>
+    <AssemblyName>SmartConnect.Common.Exceptions</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,8 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\Ninject.cs" />
-    <Compile Include="Constants\ServiceLocator.cs" />
+    <Compile Include="ServiceLocatorInitializeException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

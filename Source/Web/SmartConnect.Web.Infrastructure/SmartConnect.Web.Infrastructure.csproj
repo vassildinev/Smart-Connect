@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ObjectFactory.cs" />
     <Compile Include="Registries\Contracts\INinjectRegistry.cs" />
     <Compile Include="Registries\DataBindingsRegistry.cs" />
     <Compile Include="Registries\ServicesRegistry.cs" />
@@ -120,17 +121,17 @@
       <Project>{c63b2317-af3a-4334-a4fe-d3dc00a4e247}</Project>
       <Name>SmartConnect.Common.Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\SmartConnect.Common.Exceptions\SmartConnect.Common.Exceptions.csproj">
+      <Project>{da384152-db36-4579-864d-08bce61775c5}</Project>
+      <Name>SmartConnect.Common.Exceptions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\SmartConnect.Data\SmartConnect.Data.csproj">
       <Project>{cd457887-105a-4f6e-aed7-1e704ae493a5}</Project>
       <Name>SmartConnect.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Services\SmartConnect.Services.Common\SmartConnect.Services.Common.csproj">
-      <Project>{05686a25-6c67-4439-88cd-7fb7b6e460cc}</Project>
-      <Name>SmartConnect.Services.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Services\SmartConnect.Services.Identity\SmartConnect.Services.Identity.csproj">
-      <Project>{ebb42a06-492d-42e4-936b-362401eb24da}</Project>
-      <Name>SmartConnect.Services.Identity</Name>
+    <ProjectReference Include="..\SmartConnect.Web.Common\SmartConnect.Web.Common.csproj">
+      <Project>{42096e54-a1e2-4381-83fc-79bb8bbb7743}</Project>
+      <Name>SmartConnect.Web.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

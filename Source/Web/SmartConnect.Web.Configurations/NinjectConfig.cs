@@ -17,6 +17,7 @@ namespace SmartConnect.Web.Configurations
     using Ninject;
     using Ninject.Web.Common;
     using SmartConnect.Common.Constants;
+    using Infrastructure;
 
     public static class NinjectConfig
     {
@@ -41,8 +42,11 @@ namespace SmartConnect.Web.Configurations
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-
                 RegisterServices(kernel);
+
+                var objectFactory = ObjectFactory.Instance;
+                objectFactory.InitializeKernel(kernel);
+
                 return kernel;
             }
             catch
