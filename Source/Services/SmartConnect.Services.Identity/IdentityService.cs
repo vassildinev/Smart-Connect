@@ -10,7 +10,7 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
     using Microsoft.Owin.Security.DataProtection;
-    using SmartConnect.Common.Constants.Services;
+    using Services.Common.Constants;
 
     public class IdentityService : UserManager<User>
     {

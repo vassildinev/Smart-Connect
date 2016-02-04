@@ -3,7 +3,7 @@
     using System.Threading.Tasks;
 
     using Microsoft.AspNet.Identity;
-    using SmartConnect.Common.Constants.Services;
+    using Services.Common.Constants;
 
     public class EmailService : IIdentityMessageService
     {

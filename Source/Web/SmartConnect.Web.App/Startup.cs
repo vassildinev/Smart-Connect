@@ -1,14 +1,11 @@
-﻿using Microsoft.Owin;
-using Owin;
-
-[assembly: OwinStartupAttribute(typeof(SmartConnect.Web.App.Startup))]
+﻿[assembly: Microsoft.Owin.OwinStartup(typeof(SmartConnect.Web.App.Startup))]
 namespace SmartConnect.Web.App
 {
-    public partial class Startup
+    using Configurations;
+    using Owin;
+
+    public class Startup
     {
-        public void Configuration(IAppBuilder app)
-        {
-            ConfigureAuth(app);
-        }
+        public void Configuration(IAppBuilder app) => AuthConfig.ConfigureAuth(app);
     }
 }
