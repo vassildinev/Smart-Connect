@@ -1,9 +1,10 @@
 ﻿namespace SmartConnect.Data
 {
+    using Contracts;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
 
-    public class SmartConnectDbContext : IdentityDbContext<User>
+    public class SmartConnectDbContext : IdentityDbContext<User>, ISmartConnectDbContext
     {
         private const string DbConnectionName = "SmartConnection";
 

@@ -153,6 +153,10 @@
     <Compile Include="ViewEnginesConfig.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\SmartConnect.Common.Constants\SmartConnect.Common.Constants.csproj">
+      <Project>{c63b2317-af3a-4334-a4fe-d3dc00a4e247}</Project>
+      <Name>SmartConnect.Common.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\SmartConnect.Data.Models\SmartConnect.Data.Models.csproj">
       <Project>{af9e8394-8ac4-42ea-9f8c-096c2efb985c}</Project>
       <Name>SmartConnect.Data.Models</Name>
