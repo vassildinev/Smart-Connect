@@ -11,15 +11,15 @@ namespace SmartConnect.Web.Configurations
     using System.Linq;
     using System.Reflection;
     using System.Web;
-
+    
+    using Infrastructure;
     using Infrastructure.Registries.Contracts;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Web.Common;
     using SmartConnect.Common.Constants;
-    using Infrastructure;
 
-    public static class NinjectConfig
+    public class NinjectConfig
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
@@ -46,7 +46,7 @@ namespace SmartConnect.Web.Configurations
 
                 var objectFactory = ObjectFactory.Instance;
                 objectFactory.InitializeKernel(kernel);
-
+                
                 return kernel;
             }
             catch

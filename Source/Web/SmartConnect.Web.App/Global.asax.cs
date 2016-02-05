@@ -6,17 +6,19 @@
     using System.Web.Routing;
 
     using Configurations;
+    using SmartConnect.Common.Constants;
 
     public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            AutoMapperConfig.RegisterMappings(Assemblies.ViewModels);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
             DatabaseConfig.RegisterDatabase();
-            ViewEnginesConfig.RegisterViewEngines(ViewEngines.Engines);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ViewEnginesConfig.RegisterViewEngines(ViewEngines.Engines);
         }
     }
 }

@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -137,9 +141,17 @@
       <Project>{af9e8394-8ac4-42ea-9f8c-096c2efb985c}</Project>
       <Name>SmartConnect.Data.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Data\SmartConnect.Data\SmartConnect.Data.csproj">
+      <Project>{cd457887-105a-4f6e-aed7-1e704ae493a5}</Project>
+      <Name>SmartConnect.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\SmartConnect.Services.Identity\SmartConnect.Services.Identity.csproj">
       <Project>{ebb42a06-492d-42e4-936b-362401eb24da}</Project>
       <Name>SmartConnect.Services.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartConnect.Web.Infrastructure\SmartConnect.Web.Infrastructure.csproj">
+      <Project>{3231e25d-839b-4c09-aca9-a76c248d9577}</Project>
+      <Name>SmartConnect.Web.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartConnect.Web.ViewModels\SmartConnect.Web.ViewModels.csproj">
       <Project>{0a699179-36ac-4f4a-a6eb-d491c305a237}</Project>
