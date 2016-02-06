@@ -1,23 +1,20 @@
 ﻿namespace SmartConnect.Web.Controllers
 {
-    using System;
-    using System.Globalization;
     using System.Linq;
-    using System.Security.Claims;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
+
     using Contracts;
+    using Data.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
+    using Services.Identity;
+    using Services.Identity.Authentication;
     using ViewModels.Account;
-    using SmartConnect.Services.Identity.Authentication;
-    using SmartConnect.Services.Identity;
-    using SmartConnect.Data.Models;
-
-    [Authorize]
-    public class AccountController : BaseController
+    
+    public class AccountController : BaseAuthorizationController
     {
         private AuthenticationService _signInManager;
         private IdentityService _userManager;

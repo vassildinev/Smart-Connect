@@ -2,7 +2,9 @@
 {
     using System.Web.Mvc;
 
-    public class HomeController : Controller
+    using Contracts;
+
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {

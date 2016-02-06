@@ -19,6 +19,7 @@
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             ViewEnginesConfig.RegisterViewEngines(ViewEngines.Engines);
+            ModelBinderProvidersConfig.RegisterModelBinderProviders();
         }
     }
 }

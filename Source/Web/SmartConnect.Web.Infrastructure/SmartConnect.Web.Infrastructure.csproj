@@ -73,6 +73,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -109,14 +110,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionResults\ActionHandlerResult.cs" />
+    <Compile Include="ActionResults\ActionHandlerWithModelResult.cs" />
+    <Compile Include="ActionResults\AutoMappedObjectResult.cs" />
+    <Compile Include="ActionResults\AutoMappedQueryViewResult.cs" />
+    <Compile Include="ActionResults\Base\BaseActionHandlerResult.cs" />
+    <Compile Include="ActionResults\Base\BaseActionHandlerWithDataResult.cs" />
+    <Compile Include="ActionResults\Contracts\IActionHandler.cs" />
+    <Compile Include="ActionResults\Contracts\IActionHandlerResult.cs" />
+    <Compile Include="ActionResults\Contracts\IActionHandlerWithModel.cs" />
+    <Compile Include="ActionResults\Contracts\IPostedDataActionHandler.cs" />
+    <Compile Include="ActionResults\Contracts\IViewResult.cs" />
+    <Compile Include="ActionResults\PostedDataActionHandlerResult.cs" />
+    <Compile Include="Cache\Contracts\BaseCacheService.cs" />
+    <Compile Include="Cache\Contracts\ICacheService.cs" />
+    <Compile Include="Cache\MemoryCacheService.cs" />
     <Compile Include="Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Mappings\IMapFrom.cs" />
     <Compile Include="Mappings\IMapperObjectsProvider.cs" />
+    <Compile Include="ModelBinders\EntityModelBinder.cs" />
+    <Compile Include="ModelBinders\EntityModelBinderProvider.cs" />
     <Compile Include="ObjectFactory.cs" />
     <Compile Include="Registries\Contracts\INinjectRegistry.cs" />
     <Compile Include="Registries\DataBindingsRegistry.cs" />
     <Compile Include="Registries\ServicesRegistry.cs" />
     <Compile Include="StandardMapperObjectsProvider.cs" />
+    <Compile Include="Validators\IValidator.cs" />
     <Compile Include="ViewEngines\LightweightRazorViewEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -132,6 +151,10 @@
     <ProjectReference Include="..\..\Common\SmartConnect.Common.Exceptions\SmartConnect.Common.Exceptions.csproj">
       <Project>{da384152-db36-4579-864d-08bce61775c5}</Project>
       <Name>SmartConnect.Common.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\SmartConnect.Data.Models\SmartConnect.Data.Models.csproj">
+      <Project>{af9e8394-8ac4-42ea-9f8c-096c2efb985c}</Project>
+      <Name>SmartConnect.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\SmartConnect.Data\SmartConnect.Data.csproj">
       <Project>{cd457887-105a-4f6e-aed7-1e704ae493a5}</Project>

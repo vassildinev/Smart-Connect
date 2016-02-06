@@ -151,6 +151,7 @@
     <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="BundleConfig.cs" />
     <Compile Include="DatabaseConfig.cs" />
+    <Compile Include="ModelBinderProvidersConfig.cs" />
     <Compile Include="FilterConfig.cs" />
     <Compile Include="NinjectConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
