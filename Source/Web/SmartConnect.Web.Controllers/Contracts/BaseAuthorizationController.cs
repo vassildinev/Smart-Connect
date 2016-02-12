@@ -14,7 +14,7 @@
 
         protected override IAsyncResult BeginExecute(RequestContext requestContext, AsyncCallback callback, object state)
         {
-            if (this.CurrentUser == null && this.User.Identity.IsAuthenticated)
+            if (this.CurrentUser == null)
             {
                 // this.data.Users
             }

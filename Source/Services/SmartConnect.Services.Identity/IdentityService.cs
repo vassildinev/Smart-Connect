@@ -3,6 +3,7 @@
     using System;
 
     using Common;
+    using Contracts;
     using Data;
     using Data.Models;
     using Microsoft.AspNet.Identity;
@@ -11,8 +12,9 @@
     using Microsoft.Owin;
     using Microsoft.Owin.Security.DataProtection;
     using Services.Common.Constants;
+    using Services.Common.Helpers;
 
-    public class IdentityService : UserManager<User>
+    public class IdentityService : UserManager<User>, IIdentityService
     {
         public IdentityService(IUserStore<User> store)
             : base(store)
@@ -66,6 +68,16 @@
             }
 
             return manager;
+        }
+
+        public IdentityResult AddToRole(string userId, string roleName)
+        {
+            return AsyncHelper.RunSync(() => this.AddToRoleAsync(userId, roleName));
+        }
+
+        public IdentityResult CreateUser(User user, string password)
+        {
+            return AsyncHelper.RunSync(() => this.CreateAsync(user, password));
         }
     }
 }
