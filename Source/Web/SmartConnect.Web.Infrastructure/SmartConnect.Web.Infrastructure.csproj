@@ -128,8 +128,9 @@
     <Compile Include="Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Mappings\IMapFrom.cs" />
     <Compile Include="Mappings\IMapperObjectsProvider.cs" />
-    <Compile Include="ModelBinders\EntityModelBinder.cs" />
+    <Compile Include="ModelBinders\EntityModelBinder{TEntity}.cs" />
     <Compile Include="ModelBinders\EntityModelBinderProvider.cs" />
+    <Compile Include="ModelBinders\Contracts\IModelBinder{TEntity, TKey}.cs" />
     <Compile Include="ObjectFactory.cs" />
     <Compile Include="Registries\Contracts\INinjectRegistry.cs" />
     <Compile Include="Registries\DataBindingsRegistry.cs" />

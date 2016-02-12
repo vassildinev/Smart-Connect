@@ -1,13 +1,17 @@
 ﻿namespace SmartConnect.Data.Repositories
 {
+    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Linq;
 
     using Contracts;
     using Data.Contracts;
+    using Models.Contracts;
 
-    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity, TKey> : IRepository<TEntity, TKey> 
+        where TEntity : class, IEntity<TKey>
+        where TKey : struct
     {
         private readonly ISmartConnectDbContext context;
         private readonly IDbSet<TEntity> set;
@@ -25,6 +29,11 @@
 
         public IQueryable<TEntity> All()
         {
+            return this.set.Where(entity => !entity.IsDeleted);
+        }
+
+        public IQueryable<TEntity> AllWithDeleted()
+        {
             return this.set;
         }
 
@@ -34,7 +43,19 @@
             return entity;
         }
 
-        public void Delete(object id)
+        public void Delete(TKey id)
+        {
+            TEntity entity = this.GetById(id);
+            this.Delete(entity);
+        }
+
+        public void Delete(TEntity entity)
+        {
+            entity.IsDeleted = true;
+            this.Update(entity);
+        }
+
+        public void HardDelete(TKey id)
         {
             TEntity entity = this.GetById(id);
             if (entity != null)
@@ -43,7 +64,7 @@
             }
         }
 
-        public void Delete(TEntity entity)
+        public void HardDelete(TEntity entity)
         {
             this.set.Remove(entity);
         }
@@ -54,7 +75,7 @@
             entry.State = EntityState.Detached;
         }
 
-        public TEntity GetById(object id)
+        public TEntity GetById(TKey id)
         {
             return this.set.Find(id);
         }

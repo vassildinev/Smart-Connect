@@ -8,7 +8,7 @@
     {
         public IModelBinder GetBinder(Type modelType)
         {
-            if (!typeof(IEntity).IsAssignableFrom(modelType))
+            if (!typeof(IEntity<>).IsAssignableFrom(modelType))
             {
                 return null;
             }
