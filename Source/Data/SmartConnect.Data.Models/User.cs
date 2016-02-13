@@ -1,6 +1,8 @@
 ﻿namespace SmartConnect.Data.Models
 {
     using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
@@ -10,13 +12,89 @@
 
     public class User : IdentityUser, IEntity<string>
     {
+        private ICollection<Deal> dealsAsClient;
+        private ICollection<Deal> dealsAsExecuter;
+        private ICollection<DealRequest> dealRequestsSent;
+        private ICollection<DealRequest> dealRequestsReceived;
+        private ICollection<Contact> contactRequestsSent;
+        private ICollection<Contact> contactRequestsReceived;
+        private ICollection<Objective> objectives;
+
+        public User()
+            : base ()
+        {
+            this.dealsAsClient = new HashSet<Deal>();
+            this.dealsAsExecuter = new HashSet<Deal>();
+            this.dealRequestsSent = new HashSet<DealRequest>();
+            this.dealRequestsReceived = new HashSet<DealRequest>();
+            this.contactRequestsSent = new HashSet<Contact>();
+            this.contactRequestsReceived = new HashSet<Contact>();
+            this.objectives = new HashSet<Objective>();
+        }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        [Column(TypeName = "Date")]
+        public DateTime? DateOfBirth { get; set; }
+
+        public Gender Gender { get; set; }
+
+        public Country Country { get; set; }
+
+        [Column(TypeName = "Date")]
         public DateTime CreatedOn { get; set; }
 
+        [Column(TypeName = "Date")]
         public DateTime? DeletedOn { get; set; }
 
         public bool IsDeleted { get; set; }
 
+        [Column(TypeName = "Date")]
         public DateTime? ModifiedOn { get; set; }
+
+        public ICollection<Deal> DealsAsClient
+        {
+            get { return this.dealsAsClient; }
+            set { this.dealsAsClient = value; }
+        }
+
+        public ICollection<Deal> DealsAsExecuter
+        {
+            get { return this.dealsAsExecuter; }
+            set { this.dealsAsExecuter = value; }
+        }
+
+        public ICollection<DealRequest> DealRequestsSent
+        {
+            get { return this.dealRequestsSent; }
+            set { this.dealRequestsSent = value; }
+        }
+
+        public ICollection<DealRequest> DealRequestsReceived
+        {
+            get { return this.dealRequestsReceived; }
+            set { this.dealRequestsReceived = value; }
+        }
+
+        public ICollection<Contact> ContactRequestsSent
+        {
+            get { return this.contactRequestsSent; }
+            set { this.contactRequestsSent = value; }
+        }
+
+        public ICollection<Contact> ContactRequestsReceived
+        {
+            get { return this.contactRequestsReceived; }
+            set { this.contactRequestsReceived = value; }
+        }
+
+        public ICollection<Objective> Objectives
+        {
+            get { return this.objectives; }
+            set { this.objectives = value; }
+        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

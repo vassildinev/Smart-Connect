@@ -41,7 +41,7 @@
             {
                 var controllerName = ControllerContext.RouteData.Values["controller"].ToString();
                 var actionName = ControllerContext.RouteData.Values["action"].ToString();
-                this.View("Errors", new HandleErrorInfo(filterContext.Exception, controllerName, actionName)).ExecuteResult(this.ControllerContext);
+                this.View("Error", new HandleErrorInfo(filterContext.Exception, controllerName, actionName)).ExecuteResult(this.ControllerContext);
             }
 
             filterContext.ExceptionHandled = true;
