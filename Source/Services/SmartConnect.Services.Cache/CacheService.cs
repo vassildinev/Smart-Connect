@@ -6,7 +6,7 @@
 
     using Contracts;
 
-    public class HttpCacheService : ICacheService
+    public class CacheService : ICacheService
     {
         private static readonly object LockObject = new object();
 

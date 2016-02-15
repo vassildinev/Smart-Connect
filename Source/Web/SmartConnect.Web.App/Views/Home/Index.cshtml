@@ -1,4 +1,6 @@
-﻿@{
+﻿@using SmartConnect.Web.ViewModels
+@model QuoteViewModel
+@{
     ViewBag.Title = "Home";
 }
 
@@ -15,3 +17,14 @@
         </div>
     </div>
 </header>
+<div style="margin-left: auto;margin-right:auto; width:550px; border-radius:20px">
+    <div class="jumbotron text-center" style="padding:10px!important">
+        <h2>Quote of the day</h2>
+        <blockquote>
+            <p>
+                @Model.Content
+            </p>
+            <em> - @Model.Author</em>
+        </blockquote>
+    </div>
+</div>

@@ -41,10 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\IdentityServiceConstants.cs" />
+    <Compile Include="Helpers\ServicesHelper.cs" />
+    <Compile Include="Contracts\IDataService{TEntity, TKey}.cs" />
     <Compile Include="Helpers\AsyncHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\SmartConnect.Data.Models\SmartConnect.Data.Models.csproj">
+      <Project>{af9e8394-8ac4-42ea-9f8c-096c2efb985c}</Project>
+      <Name>SmartConnect.Data.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
