@@ -275,9 +275,17 @@
       <Project>{cd457887-105a-4f6e-aed7-1e704ae493a5}</Project>
       <Name>SmartConnect.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\SmartConnect.Services.Cache\SmartConnect.Services.Cache.csproj">
+      <Project>{6fa028b6-1268-429e-bb4c-46a5bc2dea88}</Project>
+      <Name>SmartConnect.Services.Cache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\SmartConnect.Services.Identity\SmartConnect.Services.Identity.csproj">
       <Project>{ebb42a06-492d-42e4-936b-362401eb24da}</Project>
       <Name>SmartConnect.Services.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\SmartConnect.Services.Quotes\SmartConnect.Services.Quotes.csproj">
+      <Project>{9afe992e-cebc-4028-b42d-ede8aeabc0da}</Project>
+      <Name>SmartConnect.Services.Quotes</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartConnect.Web.Common\SmartConnect.Web.Common.csproj">
       <Project>{42096e54-a1e2-4381-83fc-79bb8bbb7743}</Project>

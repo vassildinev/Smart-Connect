@@ -122,9 +122,6 @@
     <Compile Include="ActionResults\Contracts\IPostedDataActionHandler.cs" />
     <Compile Include="ActionResults\Contracts\IViewResult.cs" />
     <Compile Include="ActionResults\PostedDataActionHandlerResult.cs" />
-    <Compile Include="Cache\Contracts\BaseCacheService.cs" />
-    <Compile Include="Cache\Contracts\ICacheService.cs" />
-    <Compile Include="Cache\MemoryCacheService.cs" />
     <Compile Include="Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Mappings\IMapFrom.cs" />
     <Compile Include="Mappings\IMapperObjectsProvider.cs" />
