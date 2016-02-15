@@ -19,6 +19,7 @@
         private ICollection<Contact> contactRequestsSent;
         private ICollection<Contact> contactRequestsReceived;
         private ICollection<Objective> objectives;
+        private ICollection<Team> teams;
 
         public User()
             : base ()
@@ -30,6 +31,7 @@
             this.contactRequestsSent = new HashSet<Contact>();
             this.contactRequestsReceived = new HashSet<Contact>();
             this.objectives = new HashSet<Objective>();
+            this.teams = new HashSet<Team>();
             this.CreatedOn = DateTime.Now;
         }
 
@@ -97,6 +99,12 @@
         {
             get { return this.objectives; }
             set { this.objectives = value; }
+        }
+
+        public ICollection<Team> Teams
+        {
+            get { return this.teams; }
+            set { this.teams = value; }
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)

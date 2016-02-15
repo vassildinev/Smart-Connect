@@ -21,18 +21,23 @@ namespace SmartConnect.Data.Migrations
         {
             var random = new Random();
 
+            // Seed Quotes
             var quotesProvider = new QuotesSeedProvider();
             var quotes = quotesProvider.GetSeedData();
             this.Seed(context, quotes);
 
+            // Seed Countries
             var countriesProvider = new CountriesSeedProvider();
             var countries = countriesProvider.GetSeedData();
             this.Seed(context, countries);
 
-            var requirementsProvider = new RequirementsSeedProvider();
-            var dealsProvider = new DealsSeedProvider();
-            var dealRequestsSeedProvider = new DealRequestsSeedProvider();
+            // Seed Users, Teams, Deals, etc.
             var usersProvider = new UsersSeedProvider();
+            var teamsProvider = new TeamsSeedProvider();
+            var dealsProvider = new DealsSeedProvider();
+            var requirementsProvider = new RequirementsSeedProvider();
+            var dealRequestsProvider = new DealRequestsSeedProvider();
+            var objectivesProvider = new ObjectivesSeedProvider();
 
             var userStore = new UserStore<User>(context);
             var userManager = new UserManager<User>(userStore);
@@ -52,14 +57,15 @@ namespace SmartConnect.Data.Migrations
             };
 
             string userPassword = "123456";
-
-            // Seed the user, create a few deals, a few deal requests per deal and a few deal requirements per deal.
-            // Then, create a new user per deal request.
-            // Attach everything to the deal, then all deals to the user.
-
+            
             for (int i = 0; i < 5; i++)
             {
+                // Seed the user, create a few deals, a few deal requests per deal and a few deal requirements per deal.
+                // Then, create a new user per deal request.
+                // Attach everything to the deal, then all deals to the user.
+
                 User client = usersProvider.GetSeedData().FirstOrDefault();
+
                 client.UserName = "user_" + Guid.NewGuid();
                 client.Email = client.UserName + "@smartconnect.com";
                 userManager.Create(client, userPassword);
@@ -67,13 +73,30 @@ namespace SmartConnect.Data.Migrations
                 var shouldHaveDeals = random.Next(0, 3) != 0;
                 if (shouldHaveDeals)
                 {
+                    Team team = teamsProvider.GetSeedData().FirstOrDefault();
+                    team.CreatedOn = DateTime.Now;
+
+                    int teamSize = random.Next(2, 5);
+                    IList<User> teamMembers = new List<User>();
+                    for (int j = 0; j < teamSize; j++)
+                    {
+                        User teamMember = usersProvider.GetSeedData().FirstOrDefault();
+                        teamMember.UserName = "user_" + Guid.NewGuid();
+                        teamMember.Email = teamMember.UserName + "@smartconnect.com";
+                        userManager.Create(teamMember, userPassword);
+
+                        teamMember.Teams.Add(team);
+                        teamMembers.Add(teamMember);
+                    }
+
                     IEnumerable<Deal> deals = dealsProvider.GetSeedData();
                     foreach (Deal deal in deals)
                     {
                         deal.Name = string.Concat(deal.Name, " ", i);
 
                         IEnumerable<Requirement> randomDealRequirements = requirementsProvider.GetSeedData();
-                        IEnumerable<DealRequest> randomDealRequests = dealRequestsSeedProvider.GetSeedData();
+                        IEnumerable<DealRequest> randomDealRequests = dealRequestsProvider.GetSeedData();
+                        IEnumerable<Objective> randomObjectives = objectivesProvider.GetSeedData();
 
                         foreach (Requirement currentDealRequirement in randomDealRequirements)
                         {
@@ -99,6 +122,15 @@ namespace SmartConnect.Data.Migrations
                             deal.Requests.Add(currentDealRequest);
                         }
 
+                        foreach (Objective currentObjective in randomObjectives)
+                        {
+                            User randomTeamMember = teamMembers[random.Next(0, teamSize)];
+                            currentObjective.ResponsibleUser = randomTeamMember;
+
+                            deal.Objectives.Add(currentObjective);
+                        }
+
+                        deal.Executer.Teams.Add(team);
                         deal.Client = client;
                         this.Seed(context, deal);
                     }

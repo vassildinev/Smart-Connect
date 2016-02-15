@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using Contracts;
     using Models;
@@ -164,7 +165,9 @@
                     Name = "Shower Subtle",
                     Value = (decimal)random.NextDouble() * 199500 + 500
                 },
-            };
+            }
+            .OrderBy(d => Guid.NewGuid())
+            .Take(random.Next(1, 8));
         }
     }
 }

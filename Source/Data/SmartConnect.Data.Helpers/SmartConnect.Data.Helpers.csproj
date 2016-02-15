@@ -65,6 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeedProviders\Contracts\ISeedProvider{TEntity}.cs" />
     <Compile Include="SeedProviders\RequirementsSeedProvider.cs" />
+    <Compile Include="SeedProviders\TeamsSeedProvider.cs" />
     <Compile Include="SeedProviders\UsersSeedProvider.cs" />
   </ItemGroup>
   <ItemGroup>

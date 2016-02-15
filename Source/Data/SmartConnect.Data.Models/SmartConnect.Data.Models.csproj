@@ -73,6 +73,7 @@
     <Compile Include="Quote.cs" />
     <Compile Include="Requirement.cs" />
     <Compile Include="RequirementPriority.cs" />
+    <Compile Include="Team.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

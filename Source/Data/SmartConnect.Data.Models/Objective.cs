@@ -7,6 +7,8 @@
 
     public class Objective : BaseModel<int>
     {
+        public string Name { get; set; }
+
         [Required]
         public string ResponsibleUserId { get; set; }
 
