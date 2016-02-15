@@ -5,7 +5,7 @@
 
     using Contracts;
 
-    public class Deal : BaseModel<string>
+    public class Deal : BaseModel<int>
     {
         private ICollection<Requirement> requirements;
         private ICollection<DealRequest> requests;

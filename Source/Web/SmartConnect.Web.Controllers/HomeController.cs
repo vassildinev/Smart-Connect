@@ -3,9 +3,17 @@
     using System.Web.Mvc;
 
     using Contracts;
+    using Services.Quotes.Contracts;
 
     public class HomeController : BaseController
     {
+        private IQuotesService quotes;
+
+        public HomeController(IQuotesService quotes)
+        {
+            this.quotes = quotes;
+        }
+
         public ActionResult Index()
         {
             return View();

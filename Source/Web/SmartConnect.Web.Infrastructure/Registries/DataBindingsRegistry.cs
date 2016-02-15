@@ -12,7 +12,7 @@
     {
         public void Register(IKernel kernel)
         {
-            kernel.Bind<ISmartConnectDbContext>().To<SmartConnectDbContext>().InRequestScope();
+            //kernel.Bind<ISmartConnectDbContext>().To<SmartConnectDbContext>().InRequestScope();
             kernel.Bind(typeof(IRepository<,>)).To(typeof(GenericRepository<,>));
         }
     }

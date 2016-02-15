@@ -39,6 +39,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Common.Constan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Common.Exceptions", "Common\SmartConnect.Common.Exceptions\SmartConnect.Common.Exceptions.csproj", "{DA384152-DB36-4579-864D-08BCE61775C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Data.Helpers", "Data\SmartConnect.Data.Helpers\SmartConnect.Data.Helpers.csproj", "{BFD12299-C84E-4204-9261-3C123DD53696}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Services.Quotes", "Services\SmartConnect.Services.Quotes\SmartConnect.Services.Quotes.csproj", "{9AFE992E-CEBC-4028-B42D-EDE8AEABC0DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +101,14 @@ Global
 		{DA384152-DB36-4579-864D-08BCE61775C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA384152-DB36-4579-864D-08BCE61775C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA384152-DB36-4579-864D-08BCE61775C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFD12299-C84E-4204-9261-3C123DD53696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFD12299-C84E-4204-9261-3C123DD53696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFD12299-C84E-4204-9261-3C123DD53696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFD12299-C84E-4204-9261-3C123DD53696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AFE992E-CEBC-4028-B42D-EDE8AEABC0DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AFE992E-CEBC-4028-B42D-EDE8AEABC0DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AFE992E-CEBC-4028-B42D-EDE8AEABC0DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AFE992E-CEBC-4028-B42D-EDE8AEABC0DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,5 +127,7 @@ Global
 		{05686A25-6C67-4439-88CD-7FB7B6E460CC} = {1CD92A0A-5E2B-47D8-9B72-365CF0D284B9}
 		{C63B2317-AF3A-4334-A4FE-D3DC00A4E247} = {F259CBC2-AEFD-485E-ADF6-5B618DE5F2C9}
 		{DA384152-DB36-4579-864D-08BCE61775C5} = {F259CBC2-AEFD-485E-ADF6-5B618DE5F2C9}
+		{BFD12299-C84E-4204-9261-3C123DD53696} = {E4931CD1-724E-4C4A-96EA-552355F9B0DA}
+		{9AFE992E-CEBC-4028-B42D-EDE8AEABC0DA} = {1CD92A0A-5E2B-47D8-9B72-365CF0D284B9}
 	EndGlobalSection
 EndGlobal

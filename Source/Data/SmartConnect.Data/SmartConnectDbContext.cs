@@ -67,13 +67,14 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             this.ChangeTableNames(modelBuilder);
 
             this.RegisterUsersContactsForeignKeyConstraints(modelBuilder);
             this.RegisterUsersDealsForeignKeyConstraints(modelBuilder);
             this.RegisterUsersDealRequestsForeignKeyConstraints(modelBuilder);
 
-            base.OnModelCreating(modelBuilder);
         }
 
         private void RegisterUsersContactsForeignKeyConstraints(DbModelBuilder modelBuilder)

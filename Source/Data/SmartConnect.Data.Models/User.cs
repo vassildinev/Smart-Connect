@@ -30,6 +30,7 @@
             this.contactRequestsSent = new HashSet<Contact>();
             this.contactRequestsReceived = new HashSet<Contact>();
             this.objectives = new HashSet<Objective>();
+            this.CreatedOn = DateTime.Now;
         }
 
         public string FirstName { get; set; }
@@ -40,6 +41,8 @@
         public DateTime? DateOfBirth { get; set; }
 
         public Gender Gender { get; set; }
+
+        public int? CountryId { get; set; }
 
         public Country Country { get; set; }
 

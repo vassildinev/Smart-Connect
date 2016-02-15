@@ -4,14 +4,14 @@
 
     using Contracts;
 
-    public class Quote : BaseModel<string>
+    public class Quote : BaseModel<int>
     {
         [Required]
-        [MinLength(60)]
+        [MaxLength(60)]
         public string Author { get; set; }
 
         [Required]
-        [MinLength(500)]
+        [MaxLength(500)]
         public string Content { get; set; }
     }
 }

@@ -4,7 +4,7 @@
 
     using Contracts;
 
-    public class Country : BaseModel<string>
+    public class Country : BaseModel<int>
     {
         private ICollection<User> users;
 

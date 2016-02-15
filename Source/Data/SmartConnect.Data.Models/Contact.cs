@@ -4,7 +4,7 @@
 
     using Contracts;
 
-    public class Contact : BaseModel<string>
+    public class Contact : BaseModel<int>
     {
         [Required]
         public string SenderId { get; set; }

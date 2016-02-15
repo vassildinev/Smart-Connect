@@ -5,14 +5,14 @@
 
     using Contracts;
 
-    public class Objective : BaseModel<string>
+    public class Objective : BaseModel<int>
     {
         [Required]
         public string ResponsibleUserId { get; set; }
 
         public virtual User ResponsibleUser { get; set; }
 
-        public string DealId { get; set; }
+        public int DealId { get; set; }
 
         public Deal Deal { get; set; }
 
