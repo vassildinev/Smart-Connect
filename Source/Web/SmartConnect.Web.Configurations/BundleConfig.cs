@@ -21,6 +21,7 @@
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/clean-blog.css",
                       "~/Content/site.css"));
         }
     }
