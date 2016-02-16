@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Services.Quote
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Services.Cache", "Services\SmartConnect.Services.Cache\SmartConnect.Services.Cache.csproj", "{6FA028B6-1268-429E-BB4C-46A5BC2DEA88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Web.Areas", "Web\SmartConnect.Web.Areas\SmartConnect.Web.Areas.csproj", "{59F7AE78-0A17-4ED0-81CC-B47032C75109}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,10 @@ Global
 		{6FA028B6-1268-429E-BB4C-46A5BC2DEA88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FA028B6-1268-429E-BB4C-46A5BC2DEA88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FA028B6-1268-429E-BB4C-46A5BC2DEA88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59F7AE78-0A17-4ED0-81CC-B47032C75109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59F7AE78-0A17-4ED0-81CC-B47032C75109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59F7AE78-0A17-4ED0-81CC-B47032C75109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59F7AE78-0A17-4ED0-81CC-B47032C75109}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,5 +142,6 @@ Global
 		{BFD12299-C84E-4204-9261-3C123DD53696} = {E4931CD1-724E-4C4A-96EA-552355F9B0DA}
 		{9AFE992E-CEBC-4028-B42D-EDE8AEABC0DA} = {1CD92A0A-5E2B-47D8-9B72-365CF0D284B9}
 		{6FA028B6-1268-429E-BB4C-46A5BC2DEA88} = {1CD92A0A-5E2B-47D8-9B72-365CF0D284B9}
+		{59F7AE78-0A17-4ED0-81CC-B47032C75109} = {64619905-CE03-4B5B-AA2F-6A1C8C4C38B5}
 	EndGlobalSection
 EndGlobal

@@ -8,8 +8,8 @@
         {
             this.AreaViewLocationFormats = new[]
             {
-             "~/Areas/{2}/Views/{1}/{0}.cshtml",
-             "~/Areas/{2}/Views/Shared/{0}.cshtml"
+             "~/Views/{2}/{1}/{0}.cshtml",
+             "~/Views/{2}/Shared/{0}.cshtml"
             };
 
             this.AreaMasterLocationFormats = new[]

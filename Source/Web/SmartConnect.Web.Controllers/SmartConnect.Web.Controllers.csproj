@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountController.cs" />
+    <Compile Include="Admin\Users\HomeController.cs" />
     <Compile Include="Contracts\AjaxController.cs" />
     <Compile Include="Contracts\BaseAuthorizationController.cs" />
     <Compile Include="Contracts\BaseController.cs" />
