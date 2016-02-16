@@ -10,6 +10,7 @@
     using System;
     using Services.Cache.Contracts;
 
+    [RequireHttps]
     public class HomeController : BaseController
     {
         private IQuotesService quotes;

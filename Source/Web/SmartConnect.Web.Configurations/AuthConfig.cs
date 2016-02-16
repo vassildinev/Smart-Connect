@@ -8,9 +8,12 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin;
     using Microsoft.Owin.Security.Cookies;
+    using Microsoft.Owin.Security.Google;
     using Owin;
     using Services.Identity;
     using Services.Identity.Authentication;
+    using Microsoft.Owin.Security.Facebook;
+    using HttpHandlers;
 
     public static class AuthConfig
     {
@@ -45,15 +48,22 @@
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            var facebookOptions = new FacebookAuthenticationOptions()
+            {
+                AppId = "985705804847366",
+                AppSecret = "60f3dd8843d253be4df4c7df53dda6e5",
+                BackchannelHttpHandler = new FacebookBackchannelHandler(),
+                UserInformationEndpoint = "https://graph.facebook.com/v2.4/me?fields=id,name,email,first_name,last_name,location"
+            };
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            facebookOptions.Scope.Add("email");
+            app.UseFacebookAuthentication(facebookOptions);
+
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "223740515644-941v7r26af6sjl5rdsb1oupkcn85mob6.apps.googleusercontent.com",
+                ClientSecret = "44TORONTMTTGYpg5j1GcEULS"
+            });
         }
     }
 }
