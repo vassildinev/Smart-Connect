@@ -234,3 +234,18 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/Source/Web/SmartConnect.Web.App/Libraries/Kendo.Mvc.dll
+Kendo
+/Source/Web/SmartConnect.Web.App/Libraries/Kendo.Mvc.xml
+/Source/Web/SmartConnect.Web.App/Views/Shared/EditorTemplates/Currency.cshtml
+/Source/Web/SmartConnect.Web.App/Views/Shared/EditorTemplates/Date.cshtml
+/Source/Web/SmartConnect.Web.App/Views/Shared/EditorTemplates/DateTime.cshtml
+/Source/Web/SmartConnect.Web.App/Views/Shared/EditorTemplates/Email.cshtml
+/Source/Web/SmartConnect.Web.App/Views/Shared/EditorTemplates/EmailAddress.cshtml
+/Source/Web/SmartConnect.Web.App/Views/Shared/EditorTemplates/GridForeignKey.cshtml
+/Source/Web/SmartConnect.Web.App/Views/Shared/EditorTemplates/Integer.cshtml
+/Source/Web/SmartConnect.Web.App/Views/Shared/EditorTemplates/Number.cshtml
+/Source/Web/SmartConnect.Web.App/Views/Shared/EditorTemplates/Password.cshtml
+/Source/Web/SmartConnect.Web.App/Views/Shared/EditorTemplates/String.cshtml
+/Source/Web/SmartConnect.Web.App/Views/Shared/EditorTemplates/Time.cshtml
+/Source/Web/SmartConnect.Web.App/Views/Shared/EditorTemplates/Url.cshtml
