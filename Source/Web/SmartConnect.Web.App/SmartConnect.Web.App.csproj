@@ -248,6 +248,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Kendo\kendo.common.min.css.map" />
     <Content Include="Content\Kendo\kendo.default.min.css.map" />
+    <None Include="Properties\PublishProfiles\smart-connect %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\smart-connect.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
