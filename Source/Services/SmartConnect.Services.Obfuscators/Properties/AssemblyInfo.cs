@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SmartConnect.Services.Identity")]
+[assembly: AssemblyTitle("SmartConnect.Services.Obfuscators")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SmartConnect.Services.Identity")]
+[assembly: AssemblyProduct("SmartConnect.Services.Obfuscators")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ebb42a06-492d-42e4-936b-362401eb24da")]
+[assembly: Guid("4b073d46-7d57-43e5-bb48-b017e9180190")]
 
 // Version information for an assembly consists of the following four values:
 //

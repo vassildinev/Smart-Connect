@@ -1,13 +1,12 @@
 ﻿namespace SmartConnect.Data.Repositories.Contracts
 {
+    using System;
     using System.Linq;
 
     using Models.Contracts;
-    using System;
 
-    public interface IRepository<TEntity, TKey> 
+    public interface IRepository<TEntity, TKey> : IDisposable
         where TEntity : class, IEntity<TKey>
-        where TKey : struct
     {
         IQueryable<TEntity> All();
 

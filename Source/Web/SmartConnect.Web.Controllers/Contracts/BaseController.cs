@@ -6,9 +6,19 @@
     using System.Web;
     using System.Web.Routing;
     using System;
+    using AutoMapper;
+    using Infrastructure.Mappings;
 
     public class BaseController : Controller
     {
+        protected IMapper Mapper
+        {
+            get
+            {
+                return StandardMapperObjectsProvider.MapperConfiguration.CreateMapper();
+            }
+        }
+
         protected override IAsyncResult BeginExecute(RequestContext requestContext, AsyncCallback callback, object state)
         {
             return base.BeginExecute(requestContext, callback, state);
@@ -17,7 +27,7 @@
         protected AutoMappedObjectResult<TSource, TResult> AutoMappedObjectView<TSource, TResult>(ViewResult view)
             where TSource : class
         {
-            return new AutoMappedObjectResult<TSource, TResult>(view);
+            return new AutoMappedObjectResult<TSource, TResult>(view, this.Mapper);
         }
 
         protected override void OnException(ExceptionContext filterContext)

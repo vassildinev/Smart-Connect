@@ -1,4 +1,4 @@
-﻿namespace SmartConnect.Services.Common.Helpers
+﻿namespace SmartConnect.Web.Common.Helpers
 {
     using System;
     using System.Globalization;

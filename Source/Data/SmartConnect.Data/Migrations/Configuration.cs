@@ -19,6 +19,11 @@ namespace SmartConnect.Data.Migrations
 
         protected override void Seed(SmartConnectDbContext context)
         {
+            if(context.Users.Any())
+            {
+                return;
+            }
+
             var random = new Random();
 
             // Seed Quotes

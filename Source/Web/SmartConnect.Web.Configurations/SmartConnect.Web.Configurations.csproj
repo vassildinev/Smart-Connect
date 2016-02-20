@@ -156,7 +156,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthConfig.cs" />
     <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="BundleConfig.cs" />
     <Compile Include="DatabaseConfig.cs" />
@@ -181,13 +180,13 @@
       <Project>{cd457887-105a-4f6e-aed7-1e704ae493a5}</Project>
       <Name>SmartConnect.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Services\SmartConnect.Services.Identity\SmartConnect.Services.Identity.csproj">
-      <Project>{ebb42a06-492d-42e4-936b-362401eb24da}</Project>
-      <Name>SmartConnect.Services.Identity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SmartConnect.Web.Common\SmartConnect.Web.Common.csproj">
       <Project>{42096e54-a1e2-4381-83fc-79bb8bbb7743}</Project>
       <Name>SmartConnect.Web.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartConnect.Web.Identity\SmartConnect.Web.Identity.csproj">
+      <Project>{a5dec8ce-1bd6-454c-bcde-2606efaffbae}</Project>
+      <Name>SmartConnect.Web.Identity</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartConnect.Web.Infrastructure\SmartConnect.Web.Infrastructure.csproj">
       <Project>{3231e25d-839b-4c09-aca9-a76c248d9577}</Project>

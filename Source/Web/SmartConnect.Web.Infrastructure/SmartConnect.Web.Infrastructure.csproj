@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.9.4.42449, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AngleSharp.0.9.4\lib\net45\AngleSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -40,6 +44,10 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlSanitizer, Version=3.0.0.0, Culture=neutral, PublicKeyToken=61c49a1a9e79cc28, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\HtmlSanitizer.3.1.93\lib\net45\HtmlSanitizer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -124,15 +132,15 @@
     <Compile Include="ActionResults\PostedDataActionHandlerResult.cs" />
     <Compile Include="Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Mappings\IMapFrom.cs" />
-    <Compile Include="Mappings\IMapperObjectsProvider.cs" />
     <Compile Include="ModelBinders\EntityModelBinder{TEntity}.cs" />
     <Compile Include="ModelBinders\EntityModelBinderProvider.cs" />
     <Compile Include="ModelBinders\Contracts\IModelBinder{TEntity, TKey}.cs" />
     <Compile Include="ObjectFactory.cs" />
     <Compile Include="Registries\Contracts\INinjectRegistry.cs" />
     <Compile Include="Registries\DataBindingsRegistry.cs" />
+    <Compile Include="Registries\ExternalServicesRegistry.cs" />
     <Compile Include="Registries\ServicesRegistry.cs" />
-    <Compile Include="StandardMapperObjectsProvider.cs" />
+    <Compile Include="Mappings\StandardMapperObjectsProvider.cs" />
     <Compile Include="Validators\IValidator.cs" />
     <Compile Include="ViewEngines\LightweightRazorViewEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

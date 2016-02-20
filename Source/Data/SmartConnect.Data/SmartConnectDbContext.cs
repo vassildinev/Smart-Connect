@@ -2,6 +2,7 @@
 {
     using System;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.Linq;
 
     using Contracts;
@@ -9,7 +10,7 @@
     using Models;
     using Models.Contracts;
 
-    public class SmartConnectDbContext : IdentityDbContext<User>, ISmartConnectDbContext
+    public class SmartConnectDbContext : IdentityDbContext<User>, ISmartConnectDbContext, IDisposable, IObjectContextAdapter
     {
         private const string DbConnectionName = "SmartConnection";
 
@@ -31,12 +32,7 @@
         public IDbSet<Quote> Quotes { get; set; }
 
         public IDbSet<Requirement> Requirements { get; set; }
-
-        public static SmartConnectDbContext Create()
-        {
-            return new SmartConnectDbContext();
-        }
-
+        
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();

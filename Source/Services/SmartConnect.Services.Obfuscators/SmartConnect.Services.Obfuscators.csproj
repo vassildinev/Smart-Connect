@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{42096E54-A1E2-4381-83FC-79BB8BBB7743}</ProjectGuid>
+    <ProjectGuid>{4B073D46-7D57-43E5-BB48-B017E9180190}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartConnect.Web.Common</RootNamespace>
-    <AssemblyName>SmartConnect.Web.Common</AssemblyName>
+    <RootNamespace>SmartConnect.Services.Obfuscators</RootNamespace>
+    <AssemblyName>SmartConnect.Services.Obfuscators</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,10 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\IdentityConstants.cs" />
-    <Compile Include="Constants\Ninject.cs" />
-    <Compile Include="Constants\ServiceLocator.cs" />
-    <Compile Include="Helpers\AsyncHelper.cs" />
+    <Compile Include="Contracts\IIdentityObfuscator.cs" />
+    <Compile Include="DefaultIdentityObfuscator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

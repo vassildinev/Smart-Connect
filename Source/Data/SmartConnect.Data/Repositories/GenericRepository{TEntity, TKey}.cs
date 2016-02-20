@@ -9,9 +9,8 @@
     using Data.Contracts;
     using Models.Contracts;
 
-    public class GenericRepository<TEntity, TKey> : IRepository<TEntity, TKey> 
+    public class GenericRepository<TEntity, TKey> : IRepository<TEntity, TKey>, IDisposable
         where TEntity : class, IEntity<TKey>
-        where TKey : struct
     {
         private readonly ISmartConnectDbContext context;
         private readonly IDbSet<TEntity> set;
@@ -53,6 +52,11 @@
         {
             entity.IsDeleted = true;
             this.Update(entity);
+        }
+
+        public void Dispose()
+        {
+            this.context.Dispose();
         }
 
         public void HardDelete(TKey id)

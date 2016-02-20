@@ -10,7 +10,7 @@
     /// <typeparam name="TEntity">Type of entity</typeparam>
     /// <typeparam name="TKey">Type of entity Id</typeparam>
     public interface IDataService<TEntity, TKey>
-        where TEntity : IEntity<TKey>
+        where TEntity : class, IEntity<TKey>
     {
         void Create(TEntity entity);
 

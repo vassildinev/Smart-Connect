@@ -9,30 +9,29 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
     using ViewModels.Manage;
-    using SmartConnect.Services.Identity.Authentication;
-    using SmartConnect.Services.Identity;
+    using Identity;
 
     [Authorize]
     public class ManageController : Controller
     {
-        private AuthenticationService _signInManager;
-        private IdentityService _userManager;
+        private SmartConnectSignInManager _signInManager;
+        private SmartConnectUserManager _userManager;
 
         public ManageController()
         {
         }
 
-        public ManageController(IdentityService userManager, AuthenticationService signInManager)
+        public ManageController(SmartConnectUserManager userManager, SmartConnectSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
         }
 
-        public AuthenticationService SignInManager
+        public SmartConnectSignInManager SignInManager
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<AuthenticationService>();
+                return _signInManager ?? HttpContext.GetOwinContext().Get<SmartConnectSignInManager>();
             }
             private set 
             { 
@@ -40,11 +39,11 @@
             }
         }
 
-        public IdentityService UserManager
+        public SmartConnectUserManager UserManager
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<IdentityService>();
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<SmartConnectUserManager>();
             }
             private set
             {

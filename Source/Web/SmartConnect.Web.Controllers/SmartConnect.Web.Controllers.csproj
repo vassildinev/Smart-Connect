@@ -156,13 +156,13 @@
       <Project>{05686a25-6c67-4439-88cd-7fb7b6e460cc}</Project>
       <Name>SmartConnect.Services.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Services\SmartConnect.Services.Identity\SmartConnect.Services.Identity.csproj">
-      <Project>{ebb42a06-492d-42e4-936b-362401eb24da}</Project>
-      <Name>SmartConnect.Services.Identity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Services\SmartConnect.Services.Quotes\SmartConnect.Services.Quotes.csproj">
       <Project>{9afe992e-cebc-4028-b42d-ede8aeabc0da}</Project>
       <Name>SmartConnect.Services.Quotes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartConnect.Web.Identity\SmartConnect.Web.Identity.csproj">
+      <Project>{a5dec8ce-1bd6-454c-bcde-2606efaffbae}</Project>
+      <Name>SmartConnect.Web.Identity</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartConnect.Web.Infrastructure\SmartConnect.Web.Infrastructure.csproj">
       <Project>{3231e25d-839b-4c09-aca9-a76c248d9577}</Project>

@@ -1,6 +1,6 @@
-﻿namespace SmartConnect.Services.Common.Constants
+﻿namespace SmartConnect.Web.Common.Constants
 {
-    public static class IdentityServiceConstants
+    public static class IdentityConstants
     {
         public const string DataProtectionProviderPurpose = "ASP.NET Identity";
         public const string TwoFactorPhoneNumberProviderName = "Phone Code";

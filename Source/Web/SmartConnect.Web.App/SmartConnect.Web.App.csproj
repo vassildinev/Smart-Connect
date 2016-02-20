@@ -346,10 +346,6 @@
       <Project>{6fa028b6-1268-429e-bb4c-46a5bc2dea88}</Project>
       <Name>SmartConnect.Services.Cache</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Services\SmartConnect.Services.Identity\SmartConnect.Services.Identity.csproj">
-      <Project>{ebb42a06-492d-42e4-936b-362401eb24da}</Project>
-      <Name>SmartConnect.Services.Identity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Services\SmartConnect.Services.Quotes\SmartConnect.Services.Quotes.csproj">
       <Project>{9afe992e-cebc-4028-b42d-ede8aeabc0da}</Project>
       <Name>SmartConnect.Services.Quotes</Name>
@@ -369,6 +365,10 @@
     <ProjectReference Include="..\SmartConnect.Web.Controllers\SmartConnect.Web.Controllers.csproj">
       <Project>{ec817feb-0c60-417f-8afe-215e3febb798}</Project>
       <Name>SmartConnect.Web.Controllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartConnect.Web.Identity\SmartConnect.Web.Identity.csproj">
+      <Project>{a5dec8ce-1bd6-454c-bcde-2606efaffbae}</Project>
+      <Name>SmartConnect.Web.Identity</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartConnect.Web.Infrastructure\SmartConnect.Web.Infrastructure.csproj">
       <Project>{3231e25d-839b-4c09-aca9-a76c248d9577}</Project>
