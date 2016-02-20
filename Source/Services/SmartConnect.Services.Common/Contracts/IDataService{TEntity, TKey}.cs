@@ -18,6 +18,8 @@
         
         IQueryable<TEntity> AllWithDeleted();
 
+        TEntity GetById(TKey id);
+
         void Update(TEntity entity);
 
         void Delete(TEntity entity);
@@ -27,5 +29,7 @@
         void HardDelete(TEntity entity);
 
         void HardDelete(TKey entityId);
+
+        int SaveChanges();
     }
 }

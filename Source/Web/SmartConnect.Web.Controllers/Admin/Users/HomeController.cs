@@ -3,12 +3,22 @@
     using System.Web.Mvc;
 
     using Contracts;
-    
-    public class HomeController : BaseAuthorizationController
+    using ViewModels.Common;
+
+    public class HomeController : BaseAdministrationController
     {
+        private const string IndexHeading = "Users";
+        private const string IndexSubHeading = "";
+
         public ActionResult Index()
         {
-            return this.View();
+            HeaderViewModel model = new HeaderViewModel()
+            {
+                Heading = IndexHeading,
+                SubHeading = IndexSubHeading
+            };
+
+            return this.View(model);
         }
     }
 }

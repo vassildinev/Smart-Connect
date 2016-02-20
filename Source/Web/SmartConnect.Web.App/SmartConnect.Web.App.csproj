@@ -52,12 +52,12 @@
       <HintPath>..\..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Glimpse.AspNet.1.8.0\lib\net45\Glimpse.AspNet.dll</HintPath>
+    <Reference Include="Glimpse.AspNet, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Glimpse.AspNet.1.9.2\lib\net45\Glimpse.AspNet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Glimpse.Core, Version=1.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Glimpse.1.8.2\lib\net45\Glimpse.Core.dll</HintPath>
+    <Reference Include="Glimpse.Core, Version=1.8.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Glimpse.Mvc5, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
@@ -252,6 +252,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Kendo\kendo.common.min.css.map" />
     <Content Include="Content\Kendo\kendo.default.min.css.map" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
     <None Include="Properties\PublishProfiles\smart-connect %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\smart-connect.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
@@ -326,6 +328,7 @@
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
     <Content Include="Views\Home\_DailyQuotePartial.cshtml" />
     <Content Include="Views\Account\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\_RegisterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Kendo\Default\" />
@@ -375,6 +378,10 @@
     <ProjectReference Include="..\SmartConnect.Web.Controllers\SmartConnect.Web.Controllers.csproj">
       <Project>{ec817feb-0c60-417f-8afe-215e3febb798}</Project>
       <Name>SmartConnect.Web.Controllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartConnect.Web.Extensions\SmartConnect.Web.Extensions.csproj">
+      <Project>{e8779d45-fe8b-46e9-8dd7-545ec24d2733}</Project>
+      <Name>SmartConnect.Web.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartConnect.Web.Identity\SmartConnect.Web.Identity.csproj">
       <Project>{a5dec8ce-1bd6-454c-bcde-2606efaffbae}</Project>

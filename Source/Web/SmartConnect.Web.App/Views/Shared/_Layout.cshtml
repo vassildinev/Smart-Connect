@@ -11,7 +11,7 @@
     @Scripts.Render("~/bundles/jquery")
 </head>
 <body>
-    <div class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="navbar navbar-default navbar-custom navbar-fixed-top black">
         <div class="container-fluid">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,14 +20,32 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Smart-Connect", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Smart-Connect", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Users", "Index", "Home", new { area = "Admin/Users" }, null)</li>
+                    <li>@Html.ActionLink("About", "About", "StaticPages")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "StaticPages")</li>
+                    @if (this.User.IsLoggedIn())
+                    {
+                        <li>@Html.ActionLink("Dashboard", "Index", "StaticPages", new { area = string.Empty }, null)</li>
+                    }
+                    @if (this.User.IsAdmin())
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administration<span class="caret"></span></a>
+                            <ul class="dropdown-menu black">
+                                <li>@Html.ActionLink("Users", "Index", "Home", new { area = "Admin/Users" }, null)</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Debug tools<span class="caret"></span></a>
+                            <ul class="dropdown-menu black">
+                                <li><a href="/Glimpse.axd">Glimpse</a></li>
+                            </ul>
+                        </li>
+                    }
                 </ul>
                 @Html.Partial("_LoginRegisterSectionPartial")
             </div>

@@ -36,6 +36,11 @@
             return this.quotes.AllWithDeleted();
         }
 
+        public Quote GetById(int id)
+        {
+            return this.quotes.GetById(id);
+        }
+
         public void Create(Quote entity)
         {
             this.quotes.Add(entity);
@@ -75,6 +80,11 @@
         public void Update(Quote entity)
         {
             this.quotes.Update(entity);
+        }
+
+        public int SaveChanges()
+        {
+            return this.quotes.SaveChanges();
         }
     }
 }

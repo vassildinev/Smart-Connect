@@ -1,12 +1,10 @@
-﻿<h1>HI</h1>
-<h1>HI</h1>
-<h1>HI</h1>
-<h1>HI</h1>
-<h1>HI</h1>
-<h1>HI</h1>
-<h1>HI</h1>
-<h1>HI</h1>
-<h1>HI</h1>
-<h1>HI</h1>
-<h1>HI</h1>
-<h1>HI</h1>
+﻿@using SmartConnect.Web.ViewModels.Admin.Users
+@using SmartConnect.Web.ViewModels.Common
+@model HeaderViewModel
+
+@{
+    ViewBag.Title = "Users";
+}
+
+@Html.Partial("_HeaderPartial", Model)
+@(Html.FullFeaturedGrid<AdminUserViewModel>("Home", m => m.Id, new { area = "Admin/Users" }))

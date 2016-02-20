@@ -26,7 +26,7 @@
                       "~/Content/site.css",
                       "~/Content/fonts.css",
                       "~/Content/fonts-other.css",
-                      "~/Content/font-awesome.css"));
+                      "~/Content/font-awesome.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/KendoCss").Include(
                       "~/Content/Kendo/kendo.common.min.css",

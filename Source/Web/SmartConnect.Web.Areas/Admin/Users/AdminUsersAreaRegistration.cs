@@ -4,13 +4,7 @@
 
     public class AdminAreaRegistration : AreaRegistration
     {
-        public override string AreaName
-        {
-            get
-            {
-                return "Admin/Users";
-            }
-        }
+        public override string AreaName => "Admin/Users";
 
         public override void RegisterArea(AreaRegistrationContext context)
         {

@@ -9,7 +9,7 @@
     {
         public static void RegisterDatabase()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SmartConnectDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SmartConnectDbContext, DefaultMigrationConfiguration>());
         }
     }
 }

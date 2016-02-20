@@ -124,6 +124,7 @@
     <Compile Include="Account\AccountViewModels.cs" />
     <Compile Include="Account\LoginUserViewModel.cs" />
     <Compile Include="Account\LoginViewModel.cs" />
+    <Compile Include="Account\RegisterUserViewModel.cs" />
     <Compile Include="Account\RegisterViewModel.cs" />
     <Compile Include="Common\BasePageViewModel.cs" />
     <Compile Include="Common\HeaderViewModel.cs" />

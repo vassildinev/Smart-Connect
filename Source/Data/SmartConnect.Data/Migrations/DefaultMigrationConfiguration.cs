@@ -9,10 +9,11 @@ namespace SmartConnect.Data.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
+    using Common.Constants;
 
-    public sealed class Configuration : DbMigrationsConfiguration<SmartConnectDbContext>
+    public sealed class DefaultMigrationConfiguration : DbMigrationsConfiguration<SmartConnectDbContext>
     {
-        public Configuration()
+        public DefaultMigrationConfiguration()
         {
             this.AutomaticMigrationsEnabled = true;
         }
@@ -35,6 +36,13 @@ namespace SmartConnect.Data.Migrations
             var countriesProvider = new CountriesSeedProvider();
             var countries = countriesProvider.GetSeedData();
             this.Seed(context, countries);
+
+            // Seed Roles
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+            roleManager.Create(new IdentityRole() { Name = Roles.User });
+            roleManager.Create(new IdentityRole() { Name = Roles.Moderator });
+            roleManager.Create(new IdentityRole() { Name = Roles.Admin });
 
             // Seed Users, Teams, Deals, etc.
             var usersProvider = new UsersSeedProvider();
@@ -62,7 +70,21 @@ namespace SmartConnect.Data.Migrations
             };
 
             string userPassword = "123456";
-            
+
+            User admin = new User()
+            {
+                UserName = "vassildinev",
+                Email = "vassildinev@gmail.com",
+                FirstName = "Vasil",
+                LastName = "Dinev",
+                DateOfBirth = new DateTime(1994, 10, 22),
+                Gender = Gender.Male
+            };
+
+            userManager.Create(admin, userPassword);
+            userManager.AddToRole(admin.Id, Roles.Admin);
+            userManager.AddToRole(admin.Id, Roles.Moderator);
+
             for (int i = 0; i < 5; i++)
             {
                 // Seed the user, create a few deals, a few deal requests per deal and a few deal requirements per deal.
@@ -74,6 +96,7 @@ namespace SmartConnect.Data.Migrations
                 client.UserName = "user_" + Guid.NewGuid();
                 client.Email = client.UserName + "@smartconnect.com";
                 userManager.Create(client, userPassword);
+                userManager.AddToRole(client.Id, Roles.User);
 
                 var shouldHaveDeals = random.Next(0, 3) != 0;
                 if (shouldHaveDeals)
@@ -89,6 +112,7 @@ namespace SmartConnect.Data.Migrations
                         teamMember.UserName = "user_" + Guid.NewGuid();
                         teamMember.Email = teamMember.UserName + "@smartconnect.com";
                         userManager.Create(teamMember, userPassword);
+                        userManager.AddToRole(teamMember.Id, Roles.User);
 
                         teamMember.Teams.Add(team);
                         teamMembers.Add(teamMember);
@@ -115,6 +139,7 @@ namespace SmartConnect.Data.Migrations
                             sender.Email = sender.UserName + "@smartconnect.com";
 
                             userManager.Create(sender, userPassword);
+                            userManager.AddToRole(sender.Id, Roles.User);
 
                             currentDealRequest.Sender = sender;
                             currentDealRequest.Receiver = client;

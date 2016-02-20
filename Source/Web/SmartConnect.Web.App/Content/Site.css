@@ -77,3 +77,11 @@ blockquote {
     blockquote em {
         font-style: italic;
     }
+
+.black {
+    background-color: black;
+}
+
+    ul.black li:hover {
+        background-color: black !important;
+    }

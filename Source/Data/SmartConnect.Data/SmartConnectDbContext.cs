@@ -5,6 +5,7 @@
     using System.Data.Entity.Infrastructure;
     using System.Linq;
 
+    using Configurations;
     using Contracts;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
@@ -41,13 +42,11 @@
 
         private void ApplyAuditInfoRules()
         {
-            // Approach via @julielerman: http://bit.ly/123661P
-            foreach (var entry in
-                this.ChangeTracker
-                    .Entries()
-                    .Where(e =>
-                        e.Entity is IAuditInfo &&
-                        ((e.State == EntityState.Added) || (e.State == EntityState.Modified))))
+            Func<DbEntityEntry, bool> changeTrackerCondition = 
+                e => e.Entity is IAuditInfo &&
+                     ((e.State == EntityState.Added) || (e.State == EntityState.Modified));
+            
+            foreach (var entry in this.ChangeTracker.Entries().Where(changeTrackerCondition))
             {
                 var entity = (IAuditInfo)entry.Entity;
                 if (entry.State == EntityState.Added && entity.CreatedOn == default(DateTime))
@@ -63,59 +62,13 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Configurations.Add(new UsersContactsConfiguration());
+            modelBuilder.Configurations.Add(new UsersDealsConfiguration());
+            modelBuilder.Configurations.Add(new UsersDealRequestsConfiguration());
+
             base.OnModelCreating(modelBuilder);
 
             this.ChangeTableNames(modelBuilder);
-
-            this.RegisterUsersContactsForeignKeyConstraints(modelBuilder);
-            this.RegisterUsersDealsForeignKeyConstraints(modelBuilder);
-            this.RegisterUsersDealRequestsForeignKeyConstraints(modelBuilder);
-
-        }
-
-        private void RegisterUsersContactsForeignKeyConstraints(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Contact>()
-                    .HasRequired(c => c.Sender)
-                    .WithMany(u => u.ContactRequestsSent)
-                    .HasForeignKey(c => c.SenderId)
-                    .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Contact>()
-                    .HasRequired(c => c.Receiver)
-                    .WithMany(u => u.ContactRequestsReceived)
-                    .HasForeignKey(c => c.ReceiverId)
-                    .WillCascadeOnDelete(false);
-        }
-
-        private void RegisterUsersDealsForeignKeyConstraints(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Deal>()
-                    .HasRequired(c => c.Client)
-                    .WithMany(u => u.DealsAsClient)
-                    .HasForeignKey(c => c.ClientId)
-                    .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Deal>()
-                    .HasRequired(c => c.Executer)
-                    .WithMany(u => u.DealsAsExecuter)
-                    .HasForeignKey(c => c.ExecuterId)
-                    .WillCascadeOnDelete(false);
-        }
-
-        private void RegisterUsersDealRequestsForeignKeyConstraints(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<DealRequest>()
-                    .HasRequired(c => c.Sender)
-                    .WithMany(u => u.DealRequestsSent)
-                    .HasForeignKey(c => c.SenderId)
-                    .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<DealRequest>()
-                    .HasRequired(c => c.Receiver)
-                    .WithMany(u => u.DealRequestsReceived)
-                    .HasForeignKey(c => c.ReceiverId)
-                    .WillCascadeOnDelete(false);
         }
 
         private void ChangeTableNames(DbModelBuilder modelBuilder)
