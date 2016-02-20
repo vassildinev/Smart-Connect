@@ -1,31 +1,23 @@
-﻿@using SmartConnect.Web.ViewModels
-@model QuoteViewModel
+﻿@using SmartConnect.Web.ViewModels.Home
+@model IndexViewModel
 @{
     ViewBag.Title = "Home";
-    ViewBag.HeaderBackgroundUrl = "../../Images/home-content-background.jpg";
 }
 
-<header class="intro-header" style="background-image: url(@ViewBag.HeaderBackgroundUrl)">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Smart-Connect</h1>
-                    <hr class="small">
-                    <span class="subheading">Client management like never before</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<div style="margin-left: auto;margin-right:auto; width:550px; border-radius:20px">
-    <div class="jumbotron text-center" style="padding:10px!important">
-        <h2>Quote of the day</h2>
-        <blockquote>
-            <p>
-                @Model.Content
-            </p>
-            <em> - @Model.Author</em>
-        </blockquote>
-    </div>
-</div>
+@Html.Partial("_HeaderPartial", Model.Header)
+@Html.Partial("_DailyQuotePartial", Model.DailyQuote)
+
+@section styles {
+    <style>
+        #quote-container {
+            margin-left: auto;
+            margin-right: auto;
+            width: 550px;
+            border-radius: 20px;
+        }
+
+        #quote-inner-container {
+            padding: 10px !important;
+        }
+    </style>
+}

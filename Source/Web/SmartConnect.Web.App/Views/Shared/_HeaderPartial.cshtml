@@ -1,15 +1,14 @@
-﻿@{
-    ViewBag.Title = "About";
-}
+﻿@using SmartConnect.Web.ViewModels.Common
+@model HeaderViewModel
 
-<header class="intro-header" style="background-image: url('../../Images/about-background.jpg')">
+<header class="intro-header" style="background-image: url(@Model.BackgroundUrl)">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
-                    <h1>About the author</h1>
+                    <h1>@Model.Heading</h1>
                     <hr class="small">
-                    <span class="subheading">Telerik Academy 2015-2016 Student</span>
+                    <span class="subheading">@Model.SubHeading</span>
                 </div>
             </div>
         </div>

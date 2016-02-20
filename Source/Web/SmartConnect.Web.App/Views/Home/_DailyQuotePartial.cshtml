@@ -1,0 +1,14 @@
+﻿@using SmartConnect.Web.ViewModels.Home
+@model QuoteViewModel
+
+<div id="quote-container">
+    <div id="quote-inner-container" class="jumbotron text-center">
+        <h2>Quote of the day</h2>
+        <blockquote>
+            <p>
+                @Model.Content
+            </p>
+            <em> - @Model.Author</em>
+        </blockquote>
+    </div>
+</div>

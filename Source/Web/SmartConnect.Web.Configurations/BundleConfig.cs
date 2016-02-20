@@ -15,19 +15,18 @@
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
-            
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/Theme/clean-blog.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/Theme/clean-blog.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/clean-blog.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/fonts.css",
+                      "~/Content/fonts-other.css",
+                      "~/Content/font-awesome.css"));
 
             bundles.Add(new StyleBundle("~/Content/KendoCss").Include(
                       "~/Content/Kendo/kendo.common.min.css",

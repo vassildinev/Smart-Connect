@@ -225,6 +225,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\clean-blog.css" />
     <Content Include="Content\clean-blog.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonts-other.css" />
+    <Content Include="Content\fonts.css" />
     <Content Include="Content\Kendo\kendo.common.min.css" />
     <Content Include="Content\Kendo\kendo.default.min.css" />
     <Content Include="favicon.ico" />
@@ -240,6 +243,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Images\about-background.jpg" />
+    <Content Include="Images\default-header-background.jpg" />
     <Content Include="Images\home-content-background.jpg" />
     <Content Include="Images\workstation-background.jpg" />
     <Content Include="Libraries\Kendo.Mvc.dll" />
@@ -281,8 +285,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\StaticPages\About.cshtml" />
+    <Content Include="Views\StaticPages\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -303,7 +307,7 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LoginRegisterSectionPartial.cshtml" />
     <Content Include="Views\Admin\Users\Home\Index.cshtml" />
     <Content Include="Scripts\Kendo\kendo.all.min.js.map" />
     <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
@@ -319,6 +323,9 @@
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Views\Shared\_HeaderPartial.cshtml" />
+    <Content Include="Views\Home\_DailyQuotePartial.cshtml" />
+    <Content Include="Views\Account\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Kendo\Default\" />
@@ -333,14 +340,17 @@
     <ProjectReference Include="..\..\Common\SmartConnect.Common.Constants\SmartConnect.Common.Constants.csproj">
       <Project>{c63b2317-af3a-4334-a4fe-d3dc00a4e247}</Project>
       <Name>SmartConnect.Common.Constants</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\SmartConnect.Data.Models\SmartConnect.Data.Models.csproj">
       <Project>{af9e8394-8ac4-42ea-9f8c-096c2efb985c}</Project>
       <Name>SmartConnect.Data.Models</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\SmartConnect.Data\SmartConnect.Data.csproj">
       <Project>{cd457887-105a-4f6e-aed7-1e704ae493a5}</Project>
       <Name>SmartConnect.Data</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\SmartConnect.Services.Cache\SmartConnect.Services.Cache.csproj">
       <Project>{6fa028b6-1268-429e-bb4c-46a5bc2dea88}</Project>

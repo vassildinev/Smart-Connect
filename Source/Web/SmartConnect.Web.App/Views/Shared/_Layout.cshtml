@@ -4,15 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart-Connect | @ViewBag.Title</title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     @Styles.Render("~/Content/KendoCss")
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/kendo")
+    @RenderSection("styles", required: false)
 
+    @Scripts.Render("~/bundles/jquery")
 </head>
 <body>
     <div class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -33,14 +29,16 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Users", "Index", "Home", new { area = "Admin/Users" }, null)</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                @Html.Partial("_LoginRegisterSectionPartial")
             </div>
         </div>
     </div>
+
     <div>
         @RenderBody()
         <hr />
     </div>
+
     <footer>
         <div class="container">
             <div class="row">
@@ -78,6 +76,7 @@
     </footer>
 
     @Scripts.Render("~/bundles/bootstrap")
+    @*@Scripts.Render("~/bundles/kendo")*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

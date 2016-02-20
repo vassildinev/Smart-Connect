@@ -15,6 +15,13 @@
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new [] { "SmartConnect.Web.Controllers" }
             );
+
+            routes.MapRoute(
+                name: "StaticPages",
+                url: "{action}",
+                defaults: new { controller = "StaticPages" },
+                namespaces: new[] { "SmartConnect.Web.Controllers" }
+            );
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace SmartConnect.Web.ViewModels
+﻿namespace SmartConnect.Web.ViewModels.Home
 {
     using Data.Models;
     using Infrastructure.Mappings;

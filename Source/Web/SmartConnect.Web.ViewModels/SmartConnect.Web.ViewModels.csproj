@@ -122,9 +122,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AccountViewModels.cs" />
+    <Compile Include="Account\LoginUserViewModel.cs" />
+    <Compile Include="Account\LoginViewModel.cs" />
+    <Compile Include="Account\RegisterViewModel.cs" />
+    <Compile Include="Common\BasePageViewModel.cs" />
+    <Compile Include="Common\HeaderViewModel.cs" />
+    <Compile Include="StaticPages\AboutViewModel.cs" />
+    <Compile Include="Home\IndexViewModel.cs" />
     <Compile Include="Manage\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuoteViewModel.cs" />
+    <Compile Include="Home\QuoteViewModel.cs" />
+    <Compile Include="StaticPages\ContactViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

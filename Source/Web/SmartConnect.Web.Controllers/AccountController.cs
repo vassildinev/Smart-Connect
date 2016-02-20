@@ -12,11 +12,24 @@
     using Microsoft.Owin.Security;
     using ViewModels.Account;
     using Identity;
+    using ViewModels.Common;
 
     public class AccountController : BaseAuthorizationController
     {
-        private SmartConnectSignInManager _signInManager;
-        private SmartConnectUserManager _userManager;
+        private const string LoginHeading = "Log in";
+        private const string LoginSubHeading = "Log in with your credentials";
+        
+        private const string RegisterHeading = "Register";
+        private const string RegisterSubHeading = "Register for our application";
+
+        private SmartConnectSignInManager signInManager;
+        private SmartConnectUserManager userManager;
+
+        private HeaderViewModel loginHeader = new HeaderViewModel()
+        {
+            Heading = LoginHeading,
+            SubHeading = LoginSubHeading
+        };
 
         public AccountController()
         {
@@ -24,19 +37,19 @@
 
         public AccountController(SmartConnectUserManager userManager, SmartConnectSignInManager signInManager )
         {
-            UserManager = userManager;
-            SignInManager = signInManager;
+            this.UserManager = userManager;
+            this.SignInManager = signInManager;
         }
 
         public SmartConnectSignInManager SignInManager
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<SmartConnectSignInManager>();
+                return signInManager ?? HttpContext.GetOwinContext().Get<SmartConnectSignInManager>();
             }
             private set 
             { 
-                _signInManager = value; 
+                signInManager = value; 
             }
         }
 
@@ -44,21 +57,25 @@
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<SmartConnectUserManager>();
+                return userManager ?? HttpContext.GetOwinContext().GetUserManager<SmartConnectUserManager>();
             }
             private set
             {
-                _userManager = value;
+                userManager = value;
             }
         }
-
-        //
-        // GET: /Account/Login
+        
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            LoginViewModel loginModel = new LoginViewModel()
+            {
+                Header = this.loginHeader,
+                User = new LoginUserViewModel(),
+                ReturnUrl = returnUrl
+            };
+
+            return this.View(loginModel);
         }
 
         //
@@ -66,28 +83,32 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginUserViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            LoginViewModel loginModel = new LoginViewModel()
             {
-                return View(model);
-            }
+                Header = this.loginHeader,
+                User = model,
+                ReturnUrl = returnUrl
+            };
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(loginModel);
+            }
+            
+            var result = await SignInManager
+                .PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
+                    return this.RedirectToLocal(returnUrl);
                 case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    return this.RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    this.ModelState.AddModelError("", "Invalid login attempt.");
+                    return this.View(loginModel);
             }
         }
 
@@ -407,16 +428,16 @@
         {
             if (disposing)
             {
-                if (_userManager != null)
+                if (userManager != null)
                 {
-                    _userManager.Dispose();
-                    _userManager = null;
+                    userManager.Dispose();
+                    userManager = null;
                 }
 
-                if (_signInManager != null)
+                if (signInManager != null)
                 {
-                    _signInManager.Dispose();
-                    _signInManager = null;
+                    signInManager.Dispose();
+                    signInManager = null;
                 }
             }
 
