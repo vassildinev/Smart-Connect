@@ -7,11 +7,12 @@
 
     using Contracts;
     using Data.Models;
+    using Identity;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
+    using Services.Users.Contracts;
     using ViewModels.Account;
-    using Identity;
     using ViewModels.Common;
 
     public class AccountController : BaseAuthorizationController
@@ -37,11 +38,13 @@
             SubHeading = RegisterSubHeading
         };
 
-        public AccountController()
+        public AccountController(IUsersService users)
+            : base(users)
         {
         }
 
-        public AccountController(SmartConnectUserManager userManager, SmartConnectSignInManager signInManager )
+        public AccountController(IUsersService users, SmartConnectUserManager userManager, SmartConnectSignInManager signInManager )
+            : this(users)
         {
             this.UserManager = userManager;
             this.SignInManager = signInManager;

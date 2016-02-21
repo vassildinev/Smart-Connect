@@ -11,7 +11,7 @@
         IKendoGridAdministrationController<User, AdminUserViewModel, string>
     {
         public HomeController(IUsersService users)
-            : base(users)
+            : base(users, users)
         {
             this.indexHeading = "Users";
         }

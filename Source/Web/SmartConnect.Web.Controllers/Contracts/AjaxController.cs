@@ -2,7 +2,7 @@
 {
     using System.Web.Mvc;
 
-    public class AjaxController : Controller
+    public abstract class AjaxController : Controller
     {
     }
 }

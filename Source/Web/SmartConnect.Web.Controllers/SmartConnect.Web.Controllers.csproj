@@ -132,12 +132,14 @@
     <Compile Include="AccountController.cs" />
     <Compile Include="Admin\Quotes\HomeController.cs" />
     <Compile Include="Admin\Users\HomeController.cs" />
+    <Compile Include="Contacts\HomeController.cs" />
     <Compile Include="Contracts\AjaxController.cs" />
     <Compile Include="Contracts\BaseAdministrationController.cs" />
     <Compile Include="Contracts\BaseAuthorizationController.cs" />
     <Compile Include="Contracts\BaseController.cs" />
     <Compile Include="Contracts\IKendoGridAdministrationController{TModel, TViewModel, TKey}.cs" />
     <Compile Include="Contracts\KendoGridAdministrationController.cs" />
+    <Compile Include="Deals\HomeController.cs" />
     <Compile Include="HomeController.cs" />
     <Compile Include="ManageController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

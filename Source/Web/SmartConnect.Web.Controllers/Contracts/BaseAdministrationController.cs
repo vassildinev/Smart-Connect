@@ -1,10 +1,17 @@
 ﻿namespace SmartConnect.Web.Controllers.Contracts
 {
-    using Common.Constants;
     using System.Web.Mvc;
 
+    using Common.Constants;
+    using Data.Models;
+    using Services.Common.Contracts;
+
     [Authorize(Roles = Roles.Admin)]
-    public class BaseAdministrationController : BaseController
+    public abstract class BaseAdministrationController : BaseAuthorizationController
     {
+        public BaseAdministrationController(IDataService<User, string> users) 
+            : base(users)
+        {
+        }
     }
 }

@@ -12,7 +12,7 @@
     using Kendo.Mvc.Extensions;
     using System.Collections.Generic;
 
-    public class BaseController : Controller
+    public abstract class BaseController : Controller
     {
         protected IMapper Mapper
         {

@@ -1,0 +1,15 @@
+﻿@model SmartConnect.Web.ViewModels.Common.HeaderViewModel
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+@Html.Partial("_HeaderPartial", Model);
+
+<div class="row text-center">
+    <div class="col-md-6">
+        @Html.ActionLink("Contacts", "Index", "Home", new { area = "Contacts" }, new { @class = "btn btn-primary" })
+    </div>
+    <div class="col-md-6">
+        @Html.ActionLink("Deals", "Index", "Home", new { area = "Deals" }, new { @class = "btn btn-primary" })
+    </div>
+</div>

@@ -2,13 +2,15 @@
 {
     using System.Web.Mvc;
 
+    using AutoMapper.QueryableExtensions;
     using Data.Models.Contracts;
+    using Infrastructure.Mappings;
     using Kendo.Mvc.UI;
     using Services.Common.Contracts;
+    using Services.Users.Contracts;
     using ViewModels.Admin;
     using ViewModels.Common;
-    using AutoMapper.QueryableExtensions;
-    using Infrastructure.Mappings;
+    using Data.Models;
 
     public abstract class KendoGridAdministrationController<TModel, TViewModel, TKey> :
         BaseAdministrationController,
@@ -18,10 +20,11 @@
     {
         protected string indexHeading = string.Empty;
         protected string indexSubHeading = string.Empty;
-
-        public KendoGridAdministrationController(IDataService<TModel, TKey> dataService)
+        
+        public KendoGridAdministrationController(IUsersService users, IDataService<TModel, TKey> data)
+            : base(users)
         {
-            this.Data = dataService;
+            this.Data = data;
         }
 
         public IDataService<TModel, TKey> Data { get; protected set; }

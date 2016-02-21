@@ -29,7 +29,7 @@
                     <li>@Html.ActionLink("Contact", "Contact", "StaticPages", new { area = string.Empty }, null)</li>
                     @if (this.User.IsLoggedIn() && this.User.IsUser())
                     {
-                        <li>@Html.ActionLink("Dashboard", "Index", "StaticPages", new { area = string.Empty }, null)</li>
+                        <li>@Html.ActionLink("Dashboard", "Dashboard", "StaticPages", new { area = string.Empty }, null)</li>
                     }
                     @if (this.User.IsAdmin())
                     {

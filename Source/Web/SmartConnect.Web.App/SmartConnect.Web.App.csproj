@@ -347,6 +347,7 @@
     <Content Include="Views\Admin\Quotes\Home\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\AdminQuote.cshtml" />
     <Content Include="Views\Shared\_DashboardContentLayout.cshtml" />
+    <Content Include="Views\Shared\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\fonts\" />

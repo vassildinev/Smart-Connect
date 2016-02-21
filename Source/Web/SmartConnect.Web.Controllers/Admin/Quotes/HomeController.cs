@@ -6,14 +6,15 @@
     using Data.Models;
     using Kendo.Mvc.UI;
     using Services.Quotes.Contracts;
+    using Services.Users.Contracts;
     using ViewModels.Admin.Quotes;
 
     public class HomeController : 
         KendoGridAdministrationController<Quote, AdminQuoteViewModel, int>,
         IKendoGridAdministrationController<Quote, AdminQuoteViewModel, int>
     {
-        public HomeController(IQuotesService quotes)
-            : base(quotes)
+        public HomeController(IUsersService users, IQuotesService quotes)
+            : base(users, quotes)
         {
             this.indexHeading = "Quotes";
         }
