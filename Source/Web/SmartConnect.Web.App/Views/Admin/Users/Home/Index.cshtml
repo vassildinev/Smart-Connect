@@ -16,6 +16,6 @@
 
 @Html.Partial("_HeaderPartial", Model)
 <div class="padded">
-    @(Html.NoCreateGridWithEditorTemplate<AdminUserViewModel>("Home", m => m.Id, "AdminUser", new { area = "Admin/Users" }))
+    @(Html.NoCreateGridWithEditorTemplate<AdminUserViewModel>("UsersAjaxAdministration", m => m.Id, "AdminUser", new { area = "Admin/Users" }))
 </div>
 @Scripts.Render("~/bundles/kendo");

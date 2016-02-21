@@ -1,17 +1,12 @@
 ﻿namespace SmartConnect.Web.Controllers.Admin.Users
 {
-
     using Contracts;
-    using Data.Models;
     using Services.Users.Contracts;
-    using ViewModels.Admin.Users;
 
-    public class HomeController : 
-        KendoGridAdministrationController<User, AdminUserViewModel, string>,
-        IKendoGridAdministrationController<User, AdminUserViewModel, string>
+    public class HomeController : BaseAdministrationController
     {
         public HomeController(IUsersService users)
-            : base(users, users)
+            : base(users)
         {
             this.indexHeading = "Users";
         }

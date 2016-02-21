@@ -1,0 +1,19 @@
+﻿@model SmartConnect.Web.ViewModels.Deals.DealViewModel
+
+<div style="padding: 0 30px">
+    @Html.ValidationSummary()
+    @Html.HiddenFor(m => m.Id)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        <br />
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Value)
+        <br />
+        @Html.EditorFor(m => m.Value)
+        @Html.ValidationMessageFor(m => m.Value)
+    </div>
+</div>

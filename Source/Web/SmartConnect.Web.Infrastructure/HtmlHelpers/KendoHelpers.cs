@@ -86,6 +86,41 @@
                         .Destroy(destroy => destroy.Action("Destroy", controllerName, routeValues)));
         }
 
+        public static GridBuilder<TViewModel> LightFeaturedGridWithEditorTemplate<TViewModel>(this HtmlHelper helper, string controllerName, Expression<Func<TViewModel, object>> modelIdExpression, string editorTemplateName, object routeValues = null, Action<GridColumnFactory<TViewModel>> columns = null)
+            where TViewModel : class
+        {
+            if (columns == null)
+            {
+                columns = cols =>
+                {
+                    cols.AutoGenerate(true);
+                    cols.Command(c =>
+                    {
+                        c.Edit();
+                        c.Destroy().Text("Delete");
+                    })
+                    .Title("Modify");
+                };
+            }
+
+            return helper.Kendo()
+                .Grid<TViewModel>()
+                .Name(GridName)
+                .Columns(columns)
+                .ColumnMenu()
+                .Pageable(page => page.Refresh(true))
+                .Sortable()
+                .Filterable()
+                .Editable(edit => edit.Mode(GridEditMode.PopUp).TemplateName(editorTemplateName))
+                .DataSource(data =>
+                    data
+                        .Ajax()
+                        .Model(m => m.Id(modelIdExpression))
+                        .Read(read => read.Action("Read", controllerName, routeValues))
+                        .Update(update => update.Action("Update", controllerName, routeValues))
+                        .Destroy(destroy => destroy.Action("Destroy", controllerName, routeValues)));
+        }
+
         public static GridBuilder<TViewModel> NoCreateGridWithEditorTemplate<TViewModel>(this HtmlHelper helper, string controllerName, Expression<Func<TViewModel, object>> modelIdExpression, string editorTemplateName, object routeValues = null, Action<GridColumnFactory<TViewModel>> columns = null) 
             where TViewModel : class
         {

@@ -18,10 +18,10 @@
         public string LastName { get; set; }
 
         [Display(Name = "Username")]
-        [MaxLength(50)]
+        [MaxLength(80)]
         public string UserName { get; set; }
 
-        [MaxLength(50)]
+        [MaxLength(80)]
         [EmailAddress]
         public string Email { get; set; }
 

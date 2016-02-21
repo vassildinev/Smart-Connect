@@ -348,11 +348,14 @@
     <Content Include="Views\Shared\EditorTemplates\AdminQuote.cshtml" />
     <Content Include="Views\Shared\_DashboardContentLayout.cshtml" />
     <Content Include="Views\Shared\Dashboard.cshtml" />
+    <Content Include="Views\Deals\Home\Index.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Deals\Deal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\fonts\" />
     <Folder Include="Content\images\" />
     <Folder Include="Content\textures\" />
+    <Folder Include="Views\Contacts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -16,5 +16,5 @@
 @Scripts.Render("~/bundles/kendo");
 @Html.Partial("_HeaderPartial", Model)
 <div class="padded">
-    @(Html.FullFeaturedGridWithEditorTemplate<AdminQuoteViewModel>("Home", m => m.Id, "AdminQuote", new { area = "Admin/Quotes" }))
+    @(Html.FullFeaturedGridWithEditorTemplate<AdminQuoteViewModel>("QuotesAjaxAdministration", m => m.Id, "AdminQuote", new { area = "Admin/Quotes" }))
 </div>

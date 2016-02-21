@@ -3,44 +3,27 @@
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;
+    using Data.Models;
     using Data.Models.Contracts;
     using Infrastructure.Mappings;
     using Kendo.Mvc.UI;
     using Services.Common.Contracts;
-    using Services.Users.Contracts;
     using ViewModels.Admin;
-    using ViewModels.Common;
-    using Data.Models;
 
     public abstract class KendoGridAdministrationController<TModel, TViewModel, TKey> :
-        BaseAdministrationController,
+        BaseAjaxAdministrationController,
         IKendoGridAdministrationController<TModel, TViewModel, TKey>
         where TModel : class, IEntity<TKey>
         where TViewModel : BaseAdministrationViewModel<TModel, TKey>
-    {
-        protected string indexHeading = string.Empty;
-        protected string indexSubHeading = string.Empty;
-        
-        public KendoGridAdministrationController(IUsersService users, IDataService<TModel, TKey> data)
+    {        
+        public KendoGridAdministrationController(IDataService<User, string> users, IDataService<TModel, TKey> data)
             : base(users)
         {
             this.Data = data;
         }
 
         public IDataService<TModel, TKey> Data { get; protected set; }
-
-        [HttpGet]
-        public ActionResult Index()
-        {
-            HeaderViewModel model = new HeaderViewModel()
-            {
-                Heading = this.indexHeading,
-                SubHeading = this.indexSubHeading
-            };
-
-            return this.View(model);
-        }
-
+        
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {

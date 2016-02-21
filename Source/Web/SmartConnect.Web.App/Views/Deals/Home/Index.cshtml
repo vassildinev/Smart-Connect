@@ -1,0 +1,14 @@
+﻿@using SmartConnect.Web.ViewModels.Deals
+@{
+    Layout = "~/Views/Shared/_DashboardContentLayout.cshtml";
+    ViewBag.Title = "Deals";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Deals panel
+    </div>
+    <div class="panel-body">
+        @(Html.LightFeaturedGridWithEditorTemplate<DealViewModel>("DealsAjax", m => m.Id, "DealViewModel", new { area = "Deals" }))
+    </div>
+</div>

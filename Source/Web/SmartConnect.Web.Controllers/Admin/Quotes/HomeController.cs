@@ -1,36 +1,14 @@
 ﻿namespace SmartConnect.Web.Controllers.Admin.Quotes
 {
-    using System.Web.Mvc;
-
     using Contracts;
-    using Data.Models;
-    using Kendo.Mvc.UI;
-    using Services.Quotes.Contracts;
     using Services.Users.Contracts;
-    using ViewModels.Admin.Quotes;
 
-    public class HomeController : 
-        KendoGridAdministrationController<Quote, AdminQuoteViewModel, int>,
-        IKendoGridAdministrationController<Quote, AdminQuoteViewModel, int>
+    public class HomeController : BaseAdministrationController
     {
-        public HomeController(IUsersService users, IQuotesService quotes)
-            : base(users, quotes)
+        public HomeController(IUsersService users)
+            : base(users)
         {
             this.indexHeading = "Quotes";
-        }
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public override ActionResult Update([DataSourceRequest] DataSourceRequest request, AdminQuoteViewModel viewModel)
-        {
-            // Check if model should be created
-            if(viewModel.Id == 0)
-            {
-                Quote model = this.CreateRecord(viewModel);
-                AdminQuoteViewModel result = this.GetCreatedModel(model);
-                return this.ObjectGridResult(request, result);
-            }
-
-            return base.Update(request, viewModel);
         }
     }
 }

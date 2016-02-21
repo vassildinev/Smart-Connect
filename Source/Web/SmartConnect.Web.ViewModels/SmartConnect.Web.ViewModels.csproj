@@ -131,6 +131,7 @@
     <Compile Include="Admin\Users\AdminUserViewModel.cs" />
     <Compile Include="Common\BasePageViewModel.cs" />
     <Compile Include="Common\HeaderViewModel.cs" />
+    <Compile Include="Deals\DealViewModel.cs" />
     <Compile Include="StaticPages\AboutViewModel.cs" />
     <Compile Include="Home\IndexViewModel.cs" />
     <Compile Include="Manage\ManageViewModels.cs" />
