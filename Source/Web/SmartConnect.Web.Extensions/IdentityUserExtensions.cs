@@ -11,6 +11,11 @@
             return principal.Identity.IsAuthenticated;
         }
 
+        public static bool IsUser(this IPrincipal principal)
+        {
+            return principal.IsInRole(Roles.User);
+        }
+
         public static bool IsModerator(this IPrincipal principal)
         {
             return principal.IsInRole(Roles.Moderator);
