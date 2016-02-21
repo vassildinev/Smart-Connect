@@ -3,11 +3,11 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
+    using Common;
     using Data.Models;
     using Infrastructure.Mappings;
-    using Admin;
 
-    public class AdminUserViewModel : BaseAdministrationViewModel<User, string>, IMapFrom<User>
+    public class AdminUserViewModel : BaseViewModel<User, string>, IMapFrom<User>
     {
         [Display(Name = "First name")]
         [MaxLength(50)]

@@ -8,13 +8,13 @@
     using Infrastructure.Mappings;
     using Kendo.Mvc.UI;
     using Services.Common.Contracts;
-    using ViewModels.Admin;
+    using ViewModels.Common;
 
     public abstract class KendoGridAdministrationController<TModel, TViewModel, TKey> :
         BaseAjaxAdministrationController,
         IKendoGridAdministrationController<TModel, TViewModel, TKey>
         where TModel : class, IEntity<TKey>
-        where TViewModel : BaseAdministrationViewModel<TModel, TKey>
+        where TViewModel : BaseViewModel<TModel, TKey>
     {        
         public KendoGridAdministrationController(IDataService<User, string> users, IDataService<TModel, TKey> data)
             : base(users)

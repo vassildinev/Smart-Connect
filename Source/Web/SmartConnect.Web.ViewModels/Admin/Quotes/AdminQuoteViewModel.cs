@@ -2,11 +2,11 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    using Admin;
+    using Common;
     using Data.Models;
     using Infrastructure.Mappings;
 
-    public class AdminQuoteViewModel : BaseAdministrationViewModel<Quote, int>, IMapFrom<Quote>
+    public class AdminQuoteViewModel : BaseViewModel<Quote, int>, IMapFrom<Quote>
     {
         [Required]
         [MaxLength(60)]

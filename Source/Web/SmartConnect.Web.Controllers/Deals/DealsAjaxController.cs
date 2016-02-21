@@ -1,11 +1,18 @@
-﻿using SmartConnect.Data.Models;
-using SmartConnect.Services.Common.Contracts;
-using SmartConnect.Services.Users.Contracts;
-using SmartConnect.Web.Controllers.Contracts;
-using SmartConnect.Web.ViewModels.Deals;
-
-namespace SmartConnect.Web.Controllers.Deals
+﻿namespace SmartConnect.Web.Controllers.Deals
 {
-    public class DealsAjaxController
-    { }
+    using Contracts;
+    using Data.Models;
+    using Services.Users.Contracts;
+    using Services.Deals.Contracts;
+    using ViewModels.Deals;
+
+    public class DealsAjaxController :
+        KendoGridAdministrationController<Deal, DealViewModel, int>,
+        IKendoGridAdministrationController<Deal, DealViewModel, int>
+    {
+        public DealsAjaxController(IUsersService users, IDealsService data)
+            : base(users, data)
+        {
+        }
+    }
 }
