@@ -1,0 +1,33 @@
+﻿@model SmartConnect.Web.ViewModels.Admin.Users.AdminUserViewModel
+
+<div style="padding: 0 30px">
+    @Html.ValidationSummary()
+    @Html.HiddenFor(m => m.Id)
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstName)
+        <br />
+        @Html.EditorFor(m => m.FirstName)
+        @Html.ValidationMessageFor(m => m.FirstName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastName)
+        <br />
+        @Html.EditorFor(m => m.LastName)
+        @Html.ValidationMessageFor(m => m.LastName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserName)
+        <br />
+        @Html.EditorFor(m => m.UserName)
+        @Html.ValidationMessageFor(m => m.UserName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        <br />
+        @Html.EditorFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+</div>

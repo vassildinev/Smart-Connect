@@ -59,11 +59,16 @@
   <ItemGroup>
     <Compile Include="Contracts\IUsersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\SmartConnect.Data.Models\SmartConnect.Data.Models.csproj">
       <Project>{af9e8394-8ac4-42ea-9f8c-096c2efb985c}</Project>
       <Name>SmartConnect.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\SmartConnect.Data\SmartConnect.Data.csproj">
+      <Project>{cd457887-105a-4f6e-aed7-1e704ae493a5}</Project>
+      <Name>SmartConnect.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartConnect.Services.Common\SmartConnect.Services.Common.csproj">
       <Project>{05686a25-6c67-4439-88cd-7fb7b6e460cc}</Project>

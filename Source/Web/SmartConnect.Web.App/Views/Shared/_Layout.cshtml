@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart-Connect | @ViewBag.Title</title>
-    @Styles.Render("~/Content/KendoCss")
-    @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/KendoCss")
     @RenderSection("styles", required: false)
 
     @Scripts.Render("~/bundles/jquery")
@@ -24,9 +24,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "StaticPages")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "StaticPages")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("About", "About", "StaticPages", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "StaticPages", new { area = string.Empty }, null)</li>
                     @if (this.User.IsLoggedIn())
                     {
                         <li>@Html.ActionLink("Dashboard", "Index", "StaticPages", new { area = string.Empty }, null)</li>
@@ -37,6 +37,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administration<span class="caret"></span></a>
                             <ul class="dropdown-menu black">
                                 <li>@Html.ActionLink("Users", "Index", "Home", new { area = "Admin/Users" }, null)</li>
+                                <li>@Html.ActionLink("Quotes", "Index", "Home", new { area = "Admin/Quotes" }, null)</li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -52,7 +53,7 @@
         </div>
     </div>
 
-    <div>
+    <div class="site-body">
         @RenderBody()
         <hr />
     </div>
@@ -61,7 +62,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
+                    <ul id="social-media-links-container" class="list-inline text-center">
                         <li>
                             <a href="#">
                                 <span class="fa-stack fa-lg">

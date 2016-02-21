@@ -9,7 +9,7 @@ namespace SmartConnect.Web.Controllers.Contracts
         where TModel : class, IEntity<TKey>
         where TViewModel : class
     {
-        IDataService<TModel, TKey> DataService { get; }
+        IDataService<TModel, TKey> Data { get; }
 
         ActionResult Create([DataSourceRequest]DataSourceRequest request, TViewModel model);
 

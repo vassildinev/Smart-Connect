@@ -8,6 +8,9 @@
     using System;
     using AutoMapper;
     using Infrastructure.Mappings;
+    using Kendo.Mvc.UI;
+    using Kendo.Mvc.Extensions;
+    using System.Collections.Generic;
 
     public class BaseController : Controller
     {
@@ -24,6 +27,7 @@
             return base.BeginExecute(requestContext, callback, state);
         }
 
+        [NonAction]
         protected AutoMappedObjectResult<TSource, TResult> AutoMappedObjectView<TSource, TResult>(ViewResult view)
             where TSource : class
         {
@@ -57,29 +61,46 @@
             filterContext.ExceptionHandled = true;
         }
 
+        [NonAction]
+        protected JsonResult ObjectGridResult<TViewModel>([DataSourceRequest]DataSourceRequest request, TViewModel model)
+        {
+            return Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
+        }
+
+        [NonAction]
+        protected JsonResult CollectionGridResult<TViewModel>([DataSourceRequest]DataSourceRequest request, IEnumerable<TViewModel> data)
+        {
+            return Json(data.ToDataSourceResult(request));
+        }
+
+        [NonAction]
         protected AutoMappedQueryViewResult<TSource, TResult> AutoMappedQueryView<TSource, TResult>(ViewResult view)
         {
             return new AutoMappedQueryViewResult<TSource, TResult>(view);
         }
 
+        [NonAction]
         protected ActionHandlerResult<TData> ActionHandlerFor<TData>(ActionResult success, TData data = null)
             where TData : class
         {
             return this.ActionHandlerFor(success, null, data);
         }
 
+        [NonAction]
         protected ActionHandlerResult<TData> ActionHandlerFor<TData>(ActionResult success, ActionResult failure = null, TData data = null)
             where TData : class
         {
             return new ActionHandlerResult<TData>(data, success, failure);
         }
 
+        [NonAction]
         protected ActionHandlerWithModelResult<TData> ActionHandlerWithModelFor<TData>(ActionResult success, ActionResult failure = null)
             where TData : class
         {
             return new ActionHandlerWithModelResult<TData>(success, failure);
         }
 
+        [NonAction]
         protected PostedDataResultActionHandlerResult<TData> PostedDataActionHandlerFor<TData>(TData data, ActionResult success, ActionResult failure)
             where TData : class
         {

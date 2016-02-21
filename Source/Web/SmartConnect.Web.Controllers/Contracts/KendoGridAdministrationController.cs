@@ -3,46 +3,110 @@
     using System.Web.Mvc;
 
     using Data.Models.Contracts;
-    using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
     using Services.Common.Contracts;
+    using ViewModels.Admin;
+    using ViewModels.Common;
+    using AutoMapper.QueryableExtensions;
+    using Infrastructure.Mappings;
 
-    public abstract class KendoGridAdministrationController<TModel, TViewModel, TKey> : 
-        BaseAdministrationController, 
+    public abstract class KendoGridAdministrationController<TModel, TViewModel, TKey> :
+        BaseAdministrationController,
         IKendoGridAdministrationController<TModel, TViewModel, TKey>
         where TModel : class, IEntity<TKey>
-        where TViewModel : class
+        where TViewModel : BaseAdministrationViewModel<TModel, TKey>
     {
+        protected string indexHeading = string.Empty;
+        protected string indexSubHeading = string.Empty;
+
         public KendoGridAdministrationController(IDataService<TModel, TKey> dataService)
         {
-            this.DataService = dataService;
+            this.Data = dataService;
         }
 
-        public IDataService<TModel, TKey> DataService { get; protected set; }
+        public IDataService<TModel, TKey> Data { get; protected set; }
 
-        [HttpPost]
-        public abstract ActionResult Create([DataSourceRequest]DataSourceRequest request, TViewModel model);
+        [HttpGet]
+        public ActionResult Index()
+        {
+            HeaderViewModel model = new HeaderViewModel()
+            {
+                Heading = this.indexHeading,
+                SubHeading = this.indexSubHeading
+            };
 
-        [HttpPost]
+            return this.View(model);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
-            var data = this.DataService.All().ToDataSourceResult(request);
-            return this.Json(data);
+            var data = this.Data
+                .AllWithDeleted()
+                .ProjectTo<TViewModel>(StandardMapperObjectsProvider.MapperConfiguration);
+            return this.CollectionGridResult(request, data);
         }
 
-        [HttpPost]
-        public abstract ActionResult Update([DataSourceRequest] DataSourceRequest request, TViewModel viewModel);
+        [AcceptVerbs(HttpVerbs.Post)]
+        public virtual ActionResult Update([DataSourceRequest] DataSourceRequest request, TViewModel viewModel)
+        {
+            this.UpdateRecord(viewModel, viewModel.Id);
+            return this.ObjectGridResult(request, viewModel);
+        }
 
-        [HttpPost]
-        public abstract ActionResult Destroy([DataSourceRequest]DataSourceRequest request, TViewModel model);
+        [AcceptVerbs(HttpVerbs.Post)]
+        public virtual ActionResult Destroy([DataSourceRequest]DataSourceRequest request, TViewModel viewModel)
+        {
+            if (viewModel != null)
+            {
+                // If entity is already deleted, revert deletion
+                var databaseModel = this.Data.GetById(viewModel.Id);
+                if(databaseModel.IsDeleted)
+                {
+                    databaseModel.IsDeleted = false;
+                    databaseModel.DeletedOn = null;
+                    viewModel = this.Mapper.Map<TModel, TViewModel>(databaseModel);
+                    this.Data.Update(databaseModel);
+                }
+                else
+                {
+                    this.Data.Delete(databaseModel);
+                }
+
+                this.Data.SaveChanges();
+            }
+
+            return this.ObjectGridResult(request, viewModel);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public virtual ActionResult Create([DataSourceRequest]DataSourceRequest request, TViewModel viewModel)
+        {
+            TModel model = this.CreateRecord(viewModel);
+            TViewModel result = this.GetCreatedModel(model);
+            return this.ObjectGridResult(request, result);
+        }
+        
+        [NonAction]
+        protected TViewModel GetCreatedModel(TModel model)
+        {
+            TViewModel result = null;
+            if (model != null)
+            {
+                result = this.Mapper.Map<TViewModel>(model);
+            }
+
+            return result;
+        }
 
         [NonAction]
-        protected virtual TModel CreateRecord(TViewModel model)
+        protected TModel CreateRecord(TViewModel viewModel)
         {
-            if (model != null && this.ModelState.IsValid)
+            if (viewModel != null && this.ModelState.IsValid)
             {
-                TModel dbModel = Mapper.Map<TModel>(model);
-                this.DataService.Create(dbModel);
+                TModel dbModel = Mapper.Map<TModel>(viewModel);
+                this.Data.Create(dbModel);
+                this.Data.SaveChanges();
                 return dbModel;
             }
 
@@ -51,21 +115,15 @@
 
 
         [NonAction]
-        protected virtual void UpdateModel(TViewModel model, TKey id)
+        protected void UpdateRecord(TViewModel viewModel, TKey id)
         {
-            if (model != null && this.ModelState.IsValid)
+            if (viewModel != null && this.ModelState.IsValid)
             {
-                var dbModel = this.DataService.GetById(id);
-                this.Mapper.Map(model, dbModel);
-                this.DataService.Update(dbModel);
-                this.DataService.SaveChanges();
+                var databaseModel = this.Data.GetById(id);
+                this.Mapper.Map(viewModel, databaseModel);
+                this.Data.Update(databaseModel);
+                this.Data.SaveChanges();
             }
-        }
-
-        [NonAction]
-        protected JsonResult GridResult(TViewModel model, [DataSourceRequest]DataSourceRequest request)
-        {
-            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
     }
 }

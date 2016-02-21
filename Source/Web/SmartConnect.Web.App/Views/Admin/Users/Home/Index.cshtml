@@ -6,5 +6,16 @@
     ViewBag.Title = "Users";
 }
 
+@section styles{
+    <style>
+        .padded {
+            padding: 50px;
+        }
+    </style>
+}
+
 @Html.Partial("_HeaderPartial", Model)
-@(Html.FullFeaturedGrid<AdminUserViewModel>("Home", m => m.Id, new { area = "Admin/Users" }))
+<div class="padded">
+    @(Html.NoCreateGridWithEditorTemplate<AdminUserViewModel>("Home", m => m.Id, "AdminUser", new { area = "Admin/Users" }))
+</div>
+@Scripts.Render("~/bundles/kendo");

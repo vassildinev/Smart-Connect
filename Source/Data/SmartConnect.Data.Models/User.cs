@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
     using System.Threading.Tasks;
@@ -35,8 +36,10 @@
             this.CreatedOn = DateTime.Now;
         }
 
+        [MaxLength(50)]
         public string FirstName { get; set; }
 
+        [MaxLength(50)]
         public string LastName { get; set; }
 
         [Column(TypeName = "Date")]

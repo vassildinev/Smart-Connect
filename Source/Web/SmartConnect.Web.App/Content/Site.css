@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 0px;
     padding-bottom: 20px;
+    font-size: 12px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -82,6 +83,10 @@ blockquote {
     background-color: black;
 }
 
-    ul.black li:hover {
-        background-color: black !important;
-    }
+ul.black li:hover {
+    background-color: black !important;
+}
+
+#social-media-links-container{
+    font-size: 30px;
+}

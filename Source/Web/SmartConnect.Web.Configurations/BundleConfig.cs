@@ -23,10 +23,10 @@
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/clean-blog.css",
-                      "~/Content/site.css",
                       "~/Content/fonts.css",
                       "~/Content/fonts-other.css",
-                      "~/Content/font-awesome.min.css"));
+                      "~/Content/font-awesome.min.css",
+                      "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/KendoCss").Include(
                       "~/Content/Kendo/kendo.common.min.css",

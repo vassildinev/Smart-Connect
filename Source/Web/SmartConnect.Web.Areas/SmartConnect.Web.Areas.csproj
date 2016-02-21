@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Quotes\AdminQuotesAreaRegistration.cs" />
     <Compile Include="Admin\Users\AdminUsersAreaRegistration.cs" />
     <Compile Include="Contacts\ContactsAreaRegistration.cs" />
     <Compile Include="Deals\DealsAreaRegistration.cs" />

@@ -1,0 +1,20 @@
+﻿@using SmartConnect.Web.ViewModels.Admin.Quotes
+@using SmartConnect.Web.ViewModels.Common
+@model HeaderViewModel
+
+@{
+    ViewBag.Title = "Quotes";
+}
+
+@section styles{
+    <style>
+        .padded {
+            padding: 50px;
+        }
+    </style>
+}
+@Scripts.Render("~/bundles/kendo");
+@Html.Partial("_HeaderPartial", Model)
+<div class="padded">
+    @(Html.FullFeaturedGridWithEditorTemplate<AdminQuoteViewModel>("Home", m => m.Id, "AdminQuote", new { area = "Admin/Quotes" }))
+</div>

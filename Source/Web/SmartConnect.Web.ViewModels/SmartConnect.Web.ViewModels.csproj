@@ -126,6 +126,9 @@
     <Compile Include="Account\LoginViewModel.cs" />
     <Compile Include="Account\RegisterUserViewModel.cs" />
     <Compile Include="Account\RegisterViewModel.cs" />
+    <Compile Include="Admin\BaseAdministrationViewModel.cs" />
+    <Compile Include="Admin\Quotes\AdminQuoteViewModel.cs" />
+    <Compile Include="Admin\Users\AdminUserViewModel.cs" />
     <Compile Include="Common\BasePageViewModel.cs" />
     <Compile Include="Common\HeaderViewModel.cs" />
     <Compile Include="StaticPages\AboutViewModel.cs" />
@@ -149,6 +152,7 @@
       <Name>SmartConnect.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

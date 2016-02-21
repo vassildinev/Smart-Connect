@@ -42,6 +42,9 @@
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\SmartConnect.Web.App\Libraries\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
       <Private>True</Private>
@@ -127,10 +130,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountController.cs" />
+    <Compile Include="Admin\Quotes\HomeController.cs" />
     <Compile Include="Admin\Users\HomeController.cs" />
     <Compile Include="Contracts\AjaxController.cs" />
+    <Compile Include="Contracts\BaseAdministrationController.cs" />
     <Compile Include="Contracts\BaseAuthorizationController.cs" />
     <Compile Include="Contracts\BaseController.cs" />
+    <Compile Include="Contracts\IKendoGridAdministrationController{TModel, TViewModel, TKey}.cs" />
+    <Compile Include="Contracts\KendoGridAdministrationController.cs" />
     <Compile Include="HomeController.cs" />
     <Compile Include="ManageController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,6 +148,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\SmartConnect.Common.Constants\SmartConnect.Common.Constants.csproj">
+      <Project>{c63b2317-af3a-4334-a4fe-d3dc00a4e247}</Project>
+      <Name>SmartConnect.Common.Constants</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\SmartConnect.Data.Models\SmartConnect.Data.Models.csproj">
       <Project>{af9e8394-8ac4-42ea-9f8c-096c2efb985c}</Project>
       <Name>SmartConnect.Data.Models</Name>
@@ -157,9 +168,21 @@
       <Project>{05686a25-6c67-4439-88cd-7fb7b6e460cc}</Project>
       <Name>SmartConnect.Services.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\SmartConnect.Services.Obfuscators\SmartConnect.Services.Obfuscators.csproj">
+      <Project>{4b073d46-7d57-43e5-bb48-b017e9180190}</Project>
+      <Name>SmartConnect.Services.Obfuscators</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\SmartConnect.Services.Quotes\SmartConnect.Services.Quotes.csproj">
       <Project>{9afe992e-cebc-4028-b42d-ede8aeabc0da}</Project>
       <Name>SmartConnect.Services.Quotes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\SmartConnect.Services.Sanitizers\SmartConnect.Services.Sanitizers.csproj">
+      <Project>{88fff389-f29f-4690-a610-2f52fc2a71da}</Project>
+      <Name>SmartConnect.Services.Sanitizers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\SmartConnect.Services.Users\SmartConnect.Services.Users.csproj">
+      <Project>{3ecd94bf-206a-47e9-8752-8882dc2e5c8b}</Project>
+      <Name>SmartConnect.Services.Users</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartConnect.Web.Identity\SmartConnect.Web.Identity.csproj">
       <Project>{a5dec8ce-1bd6-454c-bcde-2606efaffbae}</Project>
