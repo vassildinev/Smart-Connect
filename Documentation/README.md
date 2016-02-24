@@ -8,7 +8,7 @@ In the **Deals** area users can add new deals for other users to request them fo
 **Administration** area - the administrator can have full control over the users, quotes for the home page (cached every 24h, i.e. daily quote), deals, countries.
 In the contacts area users can view and edit their contacts as well as send messages instantly via SignalR Web Sockets technology.
 
-[Home](https://rawgit.com/vassildinev/Smart-Connect/contacts-area-setup/Documentation/home.png)
-[Quote](https://rawgit.com/vassildinev/Smart-Connect/contacts-area-setup/Documentation/quote.png)
-[Dashboard](https://rawgit.com/vassildinev/Smart-Connect/contacts-area-setup/Documentation/dashboard.png)
-[Deals](https://rawgit.com/vassildinev/Smart-Connect/contacts-area-setup/Documentation/deals.png)
+![Home](https://rawgit.com/vassildinev/Smart-Connect/contacts-area-setup/Documentation/home.png)
+![Quote](https://rawgit.com/vassildinev/Smart-Connect/contacts-area-setup/Documentation/quote.png)
+![Dashboard](https://rawgit.com/vassildinev/Smart-Connect/contacts-area-setup/Documentation/dashboard.png)
+![Deals](https://rawgit.com/vassildinev/Smart-Connect/contacts-area-setup/Documentation/deals.png)
