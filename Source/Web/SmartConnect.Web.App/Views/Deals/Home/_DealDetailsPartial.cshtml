@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNet.Identity;
+@using SmartConnect.Web.ViewModels.Deals
+@model DealViewModel
+
+<div class="text-center">
+    <h1>Deal details</h1>
+    <hr />
+    <h2>@Model.Name</h2>
+    <h3>$@Model.Value</h3>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Requirements
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <tr>
+                    <td class="col-md-3"><b>Name</b></td>
+                    <td class="col-md-3"><b>Is Fulfilled</b></td>
+                    <td class="col-md-3"><b>Priority</b></td>
+                </tr>
+                @foreach (var requirement in Model.Requirements)
+                {
+                    <tr>
+                        <td class="col-md-3">@requirement.Name</td>
+                        <td class="col-md-3">@requirement.IsFulfilled</td>
+                        <td class="col-md-3">@requirement.Priority</td>
+                    </tr>
+                }
+            </table>
+            @if (Model.ClientId == this.User.Identity.GetUserId())
+            {
+                @Html.Partial("~/Views/Deals/Home/_AddRequirementPartial.cshtml", new RequirementViewModel { DealId = Model.Id });
+            }
+        </div>
+    </div>
+</div>

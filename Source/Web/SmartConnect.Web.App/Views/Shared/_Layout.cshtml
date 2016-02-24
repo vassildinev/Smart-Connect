@@ -9,6 +9,7 @@
     @RenderSection("styles", required: false)
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jquery-unobtrusive")
 </head>
 <body>
     <div class="navbar navbar-default navbar-custom navbar-fixed-top black">
@@ -26,7 +27,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
                     <li>@Html.ActionLink("About", "About", "StaticPages", new { area = string.Empty }, null)</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "StaticPages", new { area = string.Empty }, null)</li>
+                    <li>@Html.ActionLink("Get In Touch", "Contact", "StaticPages", new { area = string.Empty }, null)</li>
                     @if (this.User.IsLoggedIn() && this.User.IsUser())
                     {
                         <li>@Html.ActionLink("Dashboard", "Dashboard", "StaticPages", new { area = string.Empty }, null)</li>
@@ -95,7 +96,8 @@
     </footer>
 
     @Scripts.Render("~/bundles/bootstrap")
-    @*@Scripts.Render("~/bundles/kendo")*@
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/signalr")
     @RenderSection("scripts", required: false)
 </body>
 </html>

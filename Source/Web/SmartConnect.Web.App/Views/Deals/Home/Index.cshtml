@@ -4,11 +4,144 @@
     ViewBag.Title = "Deals";
 }
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        Deals panel
+@Scripts.Render("~/bundles/kendo")
+<div class="text-center">
+    @Ajax.ActionLink(
+        "New Deal",
+        "New",
+        "Home",
+        new { area = "Deals" },
+        new AjaxOptions
+        {
+            HttpMethod = "GET",
+            UpdateTargetId = "deal-details-container",
+            InsertionMode = InsertionMode.Replace
+        },
+        new { @class = "btn btn-primary" })
+</div>
+<div class="text-center">
+    <h3>Deals panel</h3>
+    <hr />
+
+    @* TODO: Extract this as an html helper *@
+    <div>
+        <h4>Current deals</h4>
+        @(Html.LightFeaturedReadMethodSettableGridWithEditorTemplate<DealViewModel>(
+        gridName: "CurrentDealsGrid",
+        controllerName: "DealsAjax",
+        readAction: "ReadCurrentDeals",
+        modelIdExpression: m => m.Id,
+        editorTemplateName: "DealViewModel",
+        routeValues: new { area = "Deals" },
+        columns: columns =>
+        {
+            columns.Bound(p => p.Id).Hidden();
+            columns.Bound(p => p.Name)
+                   .ClientTemplate(Html.ActionLink(
+                       "#= Name #",
+                       "GetById",
+                       "DealsAjax",
+                       new { area = "Deals", id = "#= Id #" },
+                       new
+                       {
+                           data_ajax = "true",
+                           data_ajax_method = "GET",
+                           data_ajax_mode = "replace",
+                           data_ajax_update = "\\#deal-details-container",
+                           data_ajax_loading = "\\#deal-details-loading-element"
+                       })
+                           .ToHtmlString());
+            columns.Bound(p => p.Value);
+        }))
     </div>
-    <div class="panel-body">
-        @(Html.LightFeaturedGridWithEditorTemplate<DealViewModel>("DealsAjax", m => m.Id, "DealViewModel", new { area = "Deals" }))
+    <div>
+        <h4>Deals won</h4>
+        @(Html.LightFeaturedReadMethodSettableGridWithEditorTemplate<DealViewModel>(
+        gridName: "DealsWonGrid",
+        controllerName: "DealsAjax",
+        readAction: "ReadDealsWon",
+        modelIdExpression: m => m.Id,
+        editorTemplateName: "DealViewModel",
+        routeValues: new { area = "Deals" },
+        columns: columns =>
+        {
+            columns.Bound("Id").Hidden();
+            columns.Bound(p => p.Name)
+                   .ClientTemplate(Html.ActionLink(
+                       "#= Name #",
+                       "GetById",
+                       "DealsAjax",
+                       new { area = "Deals", id = "#= Id #" },
+                       new
+                       {
+                           data_ajax = "true",
+                           data_ajax_method = "GET",
+                           data_ajax_mode = "replace",
+                           data_ajax_update = "\\#deal-details-container",
+                           data_ajax_loading = "\\#deal-details-loading-element"
+                       })
+                           .ToHtmlString());
+            columns.Bound("Value");
+        }))
+    </div>
+    <div>
+        <h4>Deals lost</h4>
+        @(Html.LightFeaturedReadMethodSettableGridWithEditorTemplate<DealViewModel>(
+        gridName: "DealsLostGrid",
+        controllerName: "DealsAjax",
+        readAction: "ReadDealsLost",
+        modelIdExpression: m => m.Id,
+        editorTemplateName: "DealViewModel",
+        routeValues: new { area = "Deals" },
+        columns: columns =>
+        {
+            columns.Bound("Id").Hidden();
+            columns.Bound(p => p.Name)
+                   .ClientTemplate(Html.ActionLink(
+                       "#= Name #",
+                       "GetById",
+                       "DealsAjax",
+                       new { area = "Deals", id = "#= Id #" },
+                       new
+                       {
+                           data_ajax = "true",
+                           data_ajax_method = "GET",
+                           data_ajax_mode = "replace",
+                           data_ajax_update = "\\#deal-details-container",
+                           data_ajax_loading = "\\#deal-details-loading-element"
+                       })
+                           .ToHtmlString());
+            columns.Bound("Value");
+        }))
+    </div>
+    <div>
+        <h4>Deals posted</h4>
+        @(Html.LightFeaturedReadMethodSettableGridWithEditorTemplate<DealViewModel>(
+        gridName: "OwnDealsGrid",
+        controllerName: "DealsAjax",
+        readAction: "ReadOwnDeals",
+        modelIdExpression: m => m.Id,
+        editorTemplateName: "DealViewModel",
+        routeValues: new { area = "Deals" },
+        columns: columns =>
+        {
+            columns.Bound("Id").Hidden();
+            columns.Bound(p => p.Name)
+                   .ClientTemplate(Html.ActionLink(
+                       "#= Name #",
+                       "GetById",
+                       "DealsAjax",
+                       new { area = "Deals", id = "#= Id #" },
+                       new
+                       {
+                           data_ajax = "true",
+                           data_ajax_method = "GET",
+                           data_ajax_mode = "replace",
+                           data_ajax_update = "\\#deal-details-container",
+                           data_ajax_loading = "\\#deal-details-loading-element"
+                       })
+                           .ToHtmlString());
+            columns.Bound("Value");
+        }))
     </div>
 </div>

@@ -19,8 +19,12 @@
             this.objectives = new HashSet<Objective>();
         }
 
+        [Required]
+        [MaxLength(100)]
         public string Name { get; set; }
 
+        [Required]
+        [Range(0.0, double.MaxValue)]
         public decimal Value { get; set; }
 
         public DealStatus Status { get; set; }

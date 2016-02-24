@@ -15,7 +15,7 @@
                 .WillCascadeOnDelete(false);
 
             this
-                .HasRequired(c => c.Executer)
+                .HasOptional(c => c.Executer)
                 .WithMany(u => u.DealsAsExecuter)
                 .HasForeignKey(c => c.ExecuterId)
                 .WillCascadeOnDelete(false);

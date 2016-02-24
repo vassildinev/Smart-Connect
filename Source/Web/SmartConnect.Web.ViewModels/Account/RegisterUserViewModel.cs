@@ -1,9 +1,29 @@
 ﻿namespace SmartConnect.Web.ViewModels.Account
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
+    using System.Web;
 
     public class RegisterUserViewModel
     {
+        [Required]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Date of birth")]
+        public DateTime DateOfBirth { get; set; }
+        
+        [Display(Name = "Profile picture")]
+        public HttpPostedFileBase ProfilePicture { get; set; }
+
+        [Required]
+        public string Country { get; set; }
+
         [Required]
         [Display(Name = "Username")]
         public string UserName { get; set; }

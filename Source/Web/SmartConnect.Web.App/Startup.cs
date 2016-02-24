@@ -75,6 +75,8 @@ namespace SmartConnect.Web.App
                 ClientId = "223740515644-941v7r26af6sjl5rdsb1oupkcn85mob6.apps.googleusercontent.com",
                 ClientSecret = "44TORONTMTTGYpg5j1GcEULS"
             });
+
+            app.MapSignalR();
         }
     }
 }

@@ -1,0 +1,32 @@
+﻿@using SmartConnect.Web.ViewModels.Deals
+@model DealViewModel
+
+<div class="text-center">
+    @using (Html.BeginForm("Create", "Home", new { area = "Deals" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Create a new deal</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Value, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Value, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Value, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Create" />
+            </div>
+        </div>
+    }
+</div>
+
+@Scripts.Render("~/bundles/jqueryval")

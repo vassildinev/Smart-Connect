@@ -60,6 +60,7 @@
     <Compile Include="Configurations\UsersContactsConfiguration.cs" />
     <Compile Include="Configurations\UsersDealRequestsConfiguration.cs" />
     <Compile Include="Configurations\UsersDealsConfiguration.cs" />
+    <Compile Include="Configurations\UsersMessagesConfiguration.cs" />
     <Compile Include="Contracts\ISmartConnectDbContext.cs" />
     <Compile Include="Migrations\DefaultMigrationConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

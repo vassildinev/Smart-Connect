@@ -65,6 +65,7 @@
             modelBuilder.Configurations.Add(new UsersContactsConfiguration());
             modelBuilder.Configurations.Add(new UsersDealsConfiguration());
             modelBuilder.Configurations.Add(new UsersDealRequestsConfiguration());
+            modelBuilder.Configurations.Add(new UsersMessagesConfiguration());
 
             base.OnModelCreating(modelBuilder);
 

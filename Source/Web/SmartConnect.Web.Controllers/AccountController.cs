@@ -189,8 +189,11 @@
             {
                 var user = new User
                 {
+                    FirstName = userModel.FirstName,
+                    LastName = userModel.LastName,
                     UserName = userModel.UserName,
-                    Email = userModel.Email
+                    Email = userModel.Email,
+                    DateOfBirth = userModel.DateOfBirth
                 };
 
                 var result = await this.UserManager.CreateAsync(user, userModel.Password);

@@ -67,6 +67,7 @@
     <Compile Include="DealRequest.cs" />
     <Compile Include="DealStatus.cs" />
     <Compile Include="Gender.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="Objective.cs" />
     <Compile Include="ObjectiveStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

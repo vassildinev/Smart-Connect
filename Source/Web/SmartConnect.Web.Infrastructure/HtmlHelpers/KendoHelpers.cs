@@ -94,12 +94,6 @@
                 columns = cols =>
                 {
                     cols.AutoGenerate(true);
-                    cols.Command(c =>
-                    {
-                        c.Edit();
-                        c.Destroy().Text("Delete");
-                    })
-                    .Title("Modify");
                 };
             }
 
@@ -117,6 +111,35 @@
                         .Ajax()
                         .Model(m => m.Id(modelIdExpression))
                         .Read(read => read.Action("Read", controllerName, routeValues))
+                        .Update(update => update.Action("Update", controllerName, routeValues))
+                        .Destroy(destroy => destroy.Action("Destroy", controllerName, routeValues)));
+        }
+
+        public static GridBuilder<TViewModel> LightFeaturedReadMethodSettableGridWithEditorTemplate<TViewModel>(this HtmlHelper helper, string gridName, string controllerName, string readAction, Expression<Func<TViewModel, object>> modelIdExpression, string editorTemplateName, object routeValues = null, Action<GridColumnFactory<TViewModel>> columns = null)
+            where TViewModel : class
+        {
+            if (columns == null)
+            {
+                columns = cols =>
+                {
+                    cols.AutoGenerate(true);
+                };
+            }
+
+            return helper.Kendo()
+                .Grid<TViewModel>()
+                .Name(gridName)
+                .Columns(columns)
+                .ColumnMenu()
+                .Pageable(page => page.Refresh(true))
+                .Sortable()
+                .Filterable()
+                .Editable(edit => edit.Mode(GridEditMode.PopUp).TemplateName(editorTemplateName))
+                .DataSource(data =>
+                    data
+                        .Ajax()
+                        .Model(m => m.Id(modelIdExpression))
+                        .Read(read => read.Action(readAction, controllerName, routeValues))
                         .Update(update => update.Action("Update", controllerName, routeValues))
                         .Destroy(destroy => destroy.Action("Destroy", controllerName, routeValues)));
         }

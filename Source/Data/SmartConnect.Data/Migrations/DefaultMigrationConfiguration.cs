@@ -5,11 +5,11 @@ namespace SmartConnect.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
+    using Common.Constants;
     using Helpers.SeedProviders;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
-    using Common.Constants;
 
     public sealed class DefaultMigrationConfiguration : DbMigrationsConfiguration<SmartConnectDbContext>
     {
@@ -20,7 +20,7 @@ namespace SmartConnect.Data.Migrations
 
         protected override void Seed(SmartConnectDbContext context)
         {
-            if(context.Users.Any())
+            if (context.Users.Any())
             {
                 return;
             }
@@ -73,18 +73,24 @@ namespace SmartConnect.Data.Migrations
 
             User admin = new User()
             {
-                UserName = "vassildinev",
-                Email = "vassildinev@gmail.com",
+                UserName = "admin",
+                Email = "admin@smartconnect.com",
                 FirstName = "Vasil",
                 LastName = "Dinev",
                 DateOfBirth = new DateTime(1994, 10, 22),
                 Gender = Gender.Male
             };
 
-            userManager.Create(admin, userPassword);
+            var adminCreateResult = userManager.Create(admin, userPassword);
+            if (!adminCreateResult.Succeeded)
+            {
+                throw new Exception(string.Join(", ", adminCreateResult.Errors));
+            }
+
             userManager.AddToRole(admin.Id, Roles.Admin);
             userManager.AddToRole(admin.Id, Roles.Moderator);
 
+            int nextId = 1;
             for (int i = 0; i < 5; i++)
             {
                 // Seed the user, create a few deals, a few deal requests per deal and a few deal requirements per deal.
@@ -93,9 +99,14 @@ namespace SmartConnect.Data.Migrations
 
                 User client = usersProvider.GetSeedData().FirstOrDefault();
 
-                client.UserName = "user_" + Guid.NewGuid();
+                client.UserName = "user_" + nextId++;
                 client.Email = client.UserName + "@smartconnect.com";
-                userManager.Create(client, userPassword);
+                var clientCreateResult = userManager.Create(client, userPassword);
+                if (!clientCreateResult.Succeeded)
+                {
+                    throw new Exception(string.Join(", ", adminCreateResult.Errors));
+                }
+
                 userManager.AddToRole(client.Id, Roles.User);
 
                 var shouldHaveDeals = random.Next(0, 3) != 0;
@@ -106,12 +117,19 @@ namespace SmartConnect.Data.Migrations
 
                     int teamSize = random.Next(2, 5);
                     IList<User> teamMembers = new List<User>();
-                    for (int j = 0; j < teamSize; j++)
+                    int j = 0;
+
+                    for (j = 0; j < teamSize; j++)
                     {
                         User teamMember = usersProvider.GetSeedData().FirstOrDefault();
-                        teamMember.UserName = "user_" + Guid.NewGuid();
+                        teamMember.UserName = "user_" + nextId++;
                         teamMember.Email = teamMember.UserName + "@smartconnect.com";
-                        userManager.Create(teamMember, userPassword);
+                        var teamMemberCreateResult = userManager.Create(teamMember, userPassword);
+                        if (!teamMemberCreateResult.Succeeded)
+                        {
+                            throw new Exception(string.Join(", ", adminCreateResult.Errors));
+                        }
+
                         userManager.AddToRole(teamMember.Id, Roles.User);
 
                         teamMember.Teams.Add(team);
@@ -135,10 +153,15 @@ namespace SmartConnect.Data.Migrations
                         foreach (DealRequest currentDealRequest in randomDealRequests)
                         {
                             User sender = usersProvider.GetSeedData().FirstOrDefault();
-                            sender.UserName = "user_" + Guid.NewGuid();
+                            sender.UserName = "user_" + nextId++;
                             sender.Email = sender.UserName + "@smartconnect.com";
 
-                            userManager.Create(sender, userPassword);
+                            var senderCreateResult = userManager.Create(sender, userPassword);
+                            if (!senderCreateResult.Succeeded)
+                            {
+                                throw new Exception(string.Join(", ", adminCreateResult.Errors));
+                            }
+
                             userManager.AddToRole(sender.Id, Roles.User);
 
                             currentDealRequest.Sender = sender;

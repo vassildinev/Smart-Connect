@@ -1,0 +1,33 @@
+﻿@using SmartConnect.Web.ViewModels.Deals
+@model RequirementViewModel
+
+<div  style="text-align:left">
+    @using (Html.BeginForm("Create", "Requirements", new { area = "Deals" }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Add a requirement</h4>
+        <hr />
+        @Html.HiddenFor(m => m.DealId)
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Priority, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(m => m.Priority, new List<SelectListItem>() { new SelectListItem { Text = "Low", Value = "Low" }, new SelectListItem { Text = "Normal", Value = "Normal" }, new SelectListItem { Text = "High", Value = "High" } })
+                @Html.ValidationMessageFor(m => m.Priority, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-primary" value="Add" />
+            </div>
+        </div>
+    }
+</div>
+
+@Scripts.Render("~/bundles/jqueryval")

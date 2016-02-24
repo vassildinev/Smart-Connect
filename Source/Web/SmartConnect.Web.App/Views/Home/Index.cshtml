@@ -5,6 +5,15 @@
 }
 
 @Html.Partial("_HeaderPartial", Model.Header)
+
+@if(this.User.IsLoggedIn())
+{
+    if(this.User.HasUnreadMessages())
+    {
+        <div class="panel-info">You have unread messages. You can view them @Html.ActionLink("here", "Index", "Home", new { area = "Contacts" }, null)</div>
+    }
+}
+
 @Html.Partial("_DailyQuotePartial", Model.DailyQuote)
 
 @section styles {

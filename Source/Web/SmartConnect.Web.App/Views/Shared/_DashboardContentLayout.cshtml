@@ -1,12 +1,20 @@
-﻿@{
-    Layout = "_Layout";
+﻿@using SmartConnect.Web.ViewModels.Common
+@model HeaderViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@Html.Partial("_HeaderPartial", Model)
 <div class="row">
     <div class="col-md-3">
         @RenderBody()
     </div>
     <div class="col-md-9">
-        Main content
+        <div id="deal-details-loading-element" class="hidden text-center">
+            <h1>Loading...</h1>
+        </div>
+        <div class="text-center">
+            <div id="deal-details-container"></div>
+        </div>
     </div>
 </div>

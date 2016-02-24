@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace SmartConnect.Web.Controllers.Contracts
 {
-    public interface IKendoGridAdministrationController<TModel, TViewModel, TKey>
+    public interface IKendoGridController<TModel, TViewModel, TKey>
         where TModel : class, IEntity<TKey>
         where TViewModel : class
     {

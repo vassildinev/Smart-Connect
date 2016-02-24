@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Services.Users
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Web.Extensions", "Web\SmartConnect.Web.Extensions\SmartConnect.Web.Extensions.csproj", "{E8779D45-FE8B-46E9-8DD7-545EC24D2733}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Services.Deals", "Services\SmartConnect.Services.Deals\SmartConnect.Services.Deals.csproj", "{99D6F7C9-FEFE-4E95-A8F9-F0C8B70E3812}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +147,10 @@ Global
 		{E8779D45-FE8B-46E9-8DD7-545EC24D2733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8779D45-FE8B-46E9-8DD7-545EC24D2733}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8779D45-FE8B-46E9-8DD7-545EC24D2733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99D6F7C9-FEFE-4E95-A8F9-F0C8B70E3812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99D6F7C9-FEFE-4E95-A8F9-F0C8B70E3812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99D6F7C9-FEFE-4E95-A8F9-F0C8B70E3812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99D6F7C9-FEFE-4E95-A8F9-F0C8B70E3812}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,5 +177,6 @@ Global
 		{A5DEC8CE-1BD6-454C-BCDE-2606EFAFFBAE} = {64619905-CE03-4B5B-AA2F-6A1C8C4C38B5}
 		{3ECD94BF-206A-47E9-8752-8882DC2E5C8B} = {1CD92A0A-5E2B-47D8-9B72-365CF0D284B9}
 		{E8779D45-FE8B-46E9-8DD7-545EC24D2733} = {64619905-CE03-4B5B-AA2F-6A1C8C4C38B5}
+		{99D6F7C9-FEFE-4E95-A8F9-F0C8B70E3812} = {1CD92A0A-5E2B-47D8-9B72-365CF0D284B9}
 	EndGlobalSection
 EndGlobal

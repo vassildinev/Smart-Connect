@@ -9,7 +9,7 @@
     {
         public void Register(IKernel kernel)
         {
-            kernel.Bind<IHtmlSanitizer>().To<HtmlSanitizer>().InRequestScope();
+            //kernel.Bind<IHtmlSanitizer>().To<HtmlSanitizer>().InRequestScope();
         }
     }
 }

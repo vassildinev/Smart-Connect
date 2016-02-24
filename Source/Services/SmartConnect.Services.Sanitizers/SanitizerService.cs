@@ -7,9 +7,10 @@
     {
         private IHtmlSanitizer sanitizer = new HtmlSanitizer();
 
-        public SanitizerService(IHtmlSanitizer sanitizer)
+        public SanitizerService()
         {
-            this.sanitizer = sanitizer;
+            // because reasons
+            this.sanitizer = new HtmlSanitizer();
         }
 
         public string Sanitize(string html)

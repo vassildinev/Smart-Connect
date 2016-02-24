@@ -141,10 +141,12 @@
     <Compile Include="Contracts\BaseAdministrationController.cs" />
     <Compile Include="Contracts\BaseAuthorizationController.cs" />
     <Compile Include="Contracts\BaseController.cs" />
-    <Compile Include="Contracts\IKendoGridAdministrationController{TModel, TViewModel, TKey}.cs" />
+    <Compile Include="Contracts\IKendoGridController{TModel, TViewModel, TKey}.cs" />
     <Compile Include="Contracts\KendoGridAdministrationController.cs" />
+    <Compile Include="Contracts\KendoGridController.cs" />
     <Compile Include="Deals\DealsAjaxController.cs" />
     <Compile Include="Deals\HomeController.cs" />
+    <Compile Include="Deals\RequirementsController.cs" />
     <Compile Include="HomeController.cs" />
     <Compile Include="ManageController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,6 +176,10 @@
     <ProjectReference Include="..\..\Services\SmartConnect.Services.Common\SmartConnect.Services.Common.csproj">
       <Project>{05686a25-6c67-4439-88cd-7fb7b6e460cc}</Project>
       <Name>SmartConnect.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\SmartConnect.Services.Deals\SmartConnect.Services.Deals.csproj">
+      <Project>{99d6f7c9-fefe-4e95-a8f9-f0c8b70e3812}</Project>
+      <Name>SmartConnect.Services.Deals</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\SmartConnect.Services.Obfuscators\SmartConnect.Services.Obfuscators.csproj">
       <Project>{4b073d46-7d57-43e5-bb48-b017e9180190}</Project>

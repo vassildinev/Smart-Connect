@@ -11,7 +11,7 @@
 
     public class QuotesAjaxAdministrationController :
         KendoGridAdministrationController<Quote, AdminQuoteViewModel, int>,
-        IKendoGridAdministrationController<Quote, AdminQuoteViewModel, int>
+        IKendoGridController<Quote, AdminQuoteViewModel, int>
     {
         public QuotesAjaxAdministrationController(IUsersService users, IQuotesService data) 
             : base(users, data)

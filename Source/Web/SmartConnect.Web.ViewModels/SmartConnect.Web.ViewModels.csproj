@@ -85,6 +85,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -126,12 +127,13 @@
     <Compile Include="Account\LoginViewModel.cs" />
     <Compile Include="Account\RegisterUserViewModel.cs" />
     <Compile Include="Account\RegisterViewModel.cs" />
-    <Compile Include="Admin\BaseAdministrationViewModel.cs" />
+    <Compile Include="Common\BaseViewModel.cs" />
     <Compile Include="Admin\Quotes\AdminQuoteViewModel.cs" />
     <Compile Include="Admin\Users\AdminUserViewModel.cs" />
     <Compile Include="Common\BasePageViewModel.cs" />
     <Compile Include="Common\HeaderViewModel.cs" />
     <Compile Include="Deals\DealViewModel.cs" />
+    <Compile Include="Deals\RequirementViewModel.cs" />
     <Compile Include="StaticPages\AboutViewModel.cs" />
     <Compile Include="Home\IndexViewModel.cs" />
     <Compile Include="Manage\ManageViewModels.cs" />

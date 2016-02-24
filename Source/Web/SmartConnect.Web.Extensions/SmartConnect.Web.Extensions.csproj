@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -46,11 +50,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\SmartConnect.Common.Constants\SmartConnect.Common.Constants.csproj">
       <Project>{c63b2317-af3a-4334-a4fe-d3dc00a4e247}</Project>
       <Name>SmartConnect.Common.Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\SmartConnect.Data.Models\SmartConnect.Data.Models.csproj">
+      <Project>{af9e8394-8ac4-42ea-9f8c-096c2efb985c}</Project>
+      <Name>SmartConnect.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\SmartConnect.Services.Common\SmartConnect.Services.Common.csproj">
+      <Project>{05686a25-6c67-4439-88cd-7fb7b6e460cc}</Project>
+      <Name>SmartConnect.Services.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\SmartConnect.Services.Users\SmartConnect.Services.Users.csproj">
+      <Project>{3ecd94bf-206a-47e9-8752-8882dc2e5c8b}</Project>
+      <Name>SmartConnect.Services.Users</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartConnect.Web.Infrastructure\SmartConnect.Web.Infrastructure.csproj">
+      <Project>{3231e25d-839b-4c09-aca9-a76c248d9577}</Project>
+      <Name>SmartConnect.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

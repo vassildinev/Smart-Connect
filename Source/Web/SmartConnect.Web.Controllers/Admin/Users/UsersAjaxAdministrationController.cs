@@ -7,7 +7,7 @@
 
     public class UsersAjaxAdministrationController :
         KendoGridAdministrationController<User, AdminUserViewModel, string>,
-        IKendoGridAdministrationController<User, AdminUserViewModel, string>
+        IKendoGridController<User, AdminUserViewModel, string>
     {
         public UsersAjaxAdministrationController(IUsersService users) 
             : base(users, users)

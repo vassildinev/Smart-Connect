@@ -9,12 +9,23 @@
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                 "~/Scripts/jquery.min.js"));
 
+            // For some reason if both jquery scripts are in one bundle, unobtrusive is
+            // always loaded first no matter the order of declaration... 
+            // => "jQuery is not defined" error in the console
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery-unobtrusive").Include(
+                "~/Scripts/jquery.unobtrusive-ajax.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                 "~/Scripts/Kendo/kendo.all.min.js",
                 "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/signalr").Include(
+                "~/Scripts/jquery.signalR-*",
+                "~/signalr/hubs"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",

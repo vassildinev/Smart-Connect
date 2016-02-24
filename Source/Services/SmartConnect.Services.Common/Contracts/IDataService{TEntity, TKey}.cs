@@ -18,7 +18,7 @@
         
         IQueryable<TEntity> AllWithDeleted();
 
-        TEntity GetById(TKey id);
+        TEntity GetById(TKey entityId);
 
         void Update(TEntity entity);
 
