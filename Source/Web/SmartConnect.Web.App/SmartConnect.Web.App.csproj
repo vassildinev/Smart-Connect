@@ -232,6 +232,20 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\clean-blog.css" />
     <Content Include="Content\clean-blog.min.css" />
+    <Content Include="Content\Default\editor.png" />
+    <Content Include="Content\Default\imagebrowser.png" />
+    <Content Include="Content\Default\indeterminate.gif" />
+    <Content Include="Content\Default\loading-image.gif" />
+    <Content Include="Content\Default\loading.gif" />
+    <Content Include="Content\Default\loading_2x.gif" />
+    <Content Include="Content\Default\markers.png" />
+    <Content Include="Content\Default\markers_2x.png" />
+    <Content Include="Content\Default\slider-h.gif" />
+    <Content Include="Content\Default\slider-v.gif" />
+    <Content Include="Content\Default\sprite.png" />
+    <Content Include="Content\Default\sprite_2x.png" />
+    <Content Include="Content\Default\sprite_kpi.png" />
+    <Content Include="Content\Default\sprite_kpi_2x.png" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts-other.css" />
     <Content Include="Content\fonts.css" />
@@ -358,18 +372,20 @@
     <Content Include="Views\Admin\Quotes\Home\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\AdminQuote.cshtml" />
     <Content Include="Views\Shared\_DashboardContentLayout.cshtml" />
-    <Content Include="Views\Shared\Dashboard.cshtml" />
+    <Content Include="Views\StaticPages\Dashboard.cshtml" />
     <Content Include="Views\Deals\Home\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Deals\Deal.cshtml" />
     <Content Include="Views\Deals\Home\_DealDetailsPartial.cshtml" />
     <Content Include="Views\Deals\Home\_CreateDealPartial.cshtml" />
     <Content Include="Views\Deals\Home\_AddRequirementPartial.cshtml" />
+    <Content Include="Views\Contacts\Home\_ConversationPartial.cshtml" />
+    <Content Include="Views\Contacts\Home\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\fonts\" />
     <Folder Include="Content\images\" />
     <Folder Include="Content\textures\" />
-    <Folder Include="Views\Contacts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

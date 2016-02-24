@@ -14,7 +14,7 @@
         new AjaxOptions
         {
             HttpMethod = "GET",
-            UpdateTargetId = "deal-details-container",
+            UpdateTargetId = "details-container",
             InsertionMode = InsertionMode.Replace
         },
         new { @class = "btn btn-primary" })
@@ -47,8 +47,8 @@
                            data_ajax = "true",
                            data_ajax_method = "GET",
                            data_ajax_mode = "replace",
-                           data_ajax_update = "\\#deal-details-container",
-                           data_ajax_loading = "\\#deal-details-loading-element"
+                           data_ajax_update = "\\#details-container",
+                           data_ajax_loading = "\\#details-loading-element"
                        })
                            .ToHtmlString());
             columns.Bound(p => p.Value);
@@ -77,8 +77,8 @@
                            data_ajax = "true",
                            data_ajax_method = "GET",
                            data_ajax_mode = "replace",
-                           data_ajax_update = "\\#deal-details-container",
-                           data_ajax_loading = "\\#deal-details-loading-element"
+                           data_ajax_update = "\\#details-container",
+                           data_ajax_loading = "\\#details-loading-element"
                        })
                            .ToHtmlString());
             columns.Bound("Value");
@@ -107,8 +107,8 @@
                            data_ajax = "true",
                            data_ajax_method = "GET",
                            data_ajax_mode = "replace",
-                           data_ajax_update = "\\#deal-details-container",
-                           data_ajax_loading = "\\#deal-details-loading-element"
+                           data_ajax_update = "\\#details-container",
+                           data_ajax_loading = "\\#details-loading-element"
                        })
                            .ToHtmlString());
             columns.Bound("Value");
@@ -137,8 +137,8 @@
                            data_ajax = "true",
                            data_ajax_method = "GET",
                            data_ajax_mode = "replace",
-                           data_ajax_update = "\\#deal-details-container",
-                           data_ajax_loading = "\\#deal-details-loading-element"
+                           data_ajax_update = "\\#details-container",
+                           data_ajax_loading = "\\#details-loading-element"
                        })
                            .ToHtmlString());
             columns.Bound("Value");

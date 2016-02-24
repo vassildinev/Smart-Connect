@@ -22,7 +22,7 @@
                 {
                     <tr>
                         <td class="col-md-3">@requirement.Name</td>
-                        <td class="col-md-3">@requirement.IsFulfilled</td>
+                        <td class="col-md-3">@(requirement.IsFulfilled?"Yes":"No")</td>
                         <td class="col-md-3">@requirement.Priority</td>
                     </tr>
                 }

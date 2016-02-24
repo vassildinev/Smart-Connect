@@ -10,7 +10,8 @@
 {
     if(this.User.HasUnreadMessages())
     {
-        <div class="panel-info">You have unread messages. You can view them @Html.ActionLink("here", "Index", "Home", new { area = "Contacts" }, null)</div>
+        <div class="text-center" style="font-size:20px;background-color:Highlight;padding:20px 0;width:500px;margin-left:auto;margin-right:auto"><strong>You have unread messages.</strong> You can view them <strong>@Html.ActionLink("here", "Index", "Home", new { area = "Contacts" }, null)</strong></div>
+        <br />
     }
 }
 

@@ -8,6 +8,7 @@
     using Microsoft.AspNet.Identity;
     using Services.Users.Contracts;
     using Infrastructure;
+    using Services.Contacts.Contracts;
 
     public static class PrincipalExtensions
     {
@@ -33,16 +34,16 @@
 
         public static bool HasUnreadMessages(this IPrincipal principal)
         {
-            IUsersService users = ObjectFactory.Instance.GetInstance<IUsersService>();
+            IMessagesService messages = ObjectFactory.Instance.GetInstance<IMessagesService>();
             if (!principal.IsLoggedIn())
             {
                 return false;
             }
 
             string userId = principal.Identity.GetUserId();
-            User user = users.GetById(userId);
-            
-            return user.MessagesReceived.Any(m => !m.IsSeen);
+            var unreadMessages = messages.GetByUserIdUnread(userId);
+
+            return unreadMessages.Count() > 0;
         }
     }
 }

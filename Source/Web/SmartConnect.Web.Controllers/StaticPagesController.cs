@@ -43,7 +43,7 @@
                 Header = header
             };
 
-            return this.View(aboutModel);
+            return this.View("About", aboutModel);
         }
 
         public ActionResult Contact()
@@ -59,7 +59,7 @@
                 Header = header
             };
 
-            return this.View(contactModel);
+            return this.View("Contact", contactModel);
         }
     }
 }

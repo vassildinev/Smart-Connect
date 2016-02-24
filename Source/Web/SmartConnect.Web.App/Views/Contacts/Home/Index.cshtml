@@ -1,0 +1,39 @@
+﻿@using SmartConnect.Web.ViewModels.Contacts
+@{
+    Layout = "~/Views/Shared/_DashboardContentLayout.cshtml";
+    ViewBag.Title = "Contacts";
+}
+
+@Scripts.Render("~/bundles/kendo")
+<div class="text-center">
+    <h3>Contacts panel</h3>
+    <hr />
+    <div>
+        <h4>Your contacts</h4>
+        @(Html.LightFeaturedGrid<ContactViewModel>(
+        controllerName: "ContactsAjax",
+        modelIdExpression: m => m.Id,
+        routeValues: new { area = "Contacts" },
+        columns: columns =>
+        {
+            columns.Bound(p => p.Id).Hidden();
+            columns.Bound(p => p.Sender);
+            columns.Bound(p => p.Receiver);
+            columns.Template(p => { })
+                           .Title("View")
+                           .ClientTemplate(Html.ActionLink(
+                       "Message",
+                       "GetById",
+                       "DealsAjax",
+                       new { area = "Deals", contactId = "#= Id #"},
+                       new
+                       {
+                           data_ajax = "true",
+                           data_ajax_method = "GET",
+                           data_ajax_mode = "replace",
+                           data_ajax_update = "\\#details-container",
+                           data_ajax_loading = "\\#details-loading-element"
+                       }).ToHtmlString());
+        }))
+    </div>
+</div>

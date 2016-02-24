@@ -65,6 +65,10 @@
       <Project>{05686a25-6c67-4439-88cd-7fb7b6e460cc}</Project>
       <Name>SmartConnect.Services.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Services\SmartConnect.Services.Messages\SmartConnect.Services.Contacts.csproj">
+      <Project>{662ff6b7-3fa3-4215-b414-2a31028a0079}</Project>
+      <Name>SmartConnect.Services.Contacts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\SmartConnect.Services.Users\SmartConnect.Services.Users.csproj">
       <Project>{3ecd94bf-206a-47e9-8752-8882dc2e5c8b}</Project>
       <Name>SmartConnect.Services.Users</Name>

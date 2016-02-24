@@ -4,6 +4,7 @@
     using System.Linq;
 
     using Models.Contracts;
+    using Models;
 
     public interface IRepository<TEntity, TKey> : IDisposable
         where TEntity : class, IEntity<TKey>

@@ -8,6 +8,7 @@
     using Services.Quotes.Contracts;
     using ViewModels.Home;
     using ViewModels.Common;
+    using System;
 
     [RequireHttps]
     public class HomeController : BaseController
@@ -43,6 +44,11 @@
             };
 
             return this.View(indexModel);
+        }
+
+        public ActionResult Error()
+        {
+            return this.View(new HandleErrorInfo(new Exception("Error while processing your request"), string.Empty, string.Empty));
         }
     }
 }

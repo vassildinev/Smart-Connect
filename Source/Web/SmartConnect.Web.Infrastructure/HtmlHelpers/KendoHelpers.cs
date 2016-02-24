@@ -115,6 +115,32 @@
                         .Destroy(destroy => destroy.Action("Destroy", controllerName, routeValues)));
         }
 
+        public static GridBuilder<TViewModel> LightFeaturedGrid<TViewModel>(this HtmlHelper helper, string controllerName, Expression<Func<TViewModel, object>> modelIdExpression, object routeValues = null, Action<GridColumnFactory<TViewModel>> columns = null)
+            where TViewModel : class
+        {
+            if (columns == null)
+            {
+                columns = cols =>
+                {
+                    cols.AutoGenerate(true);
+                };
+            }
+
+            return helper.Kendo()
+                .Grid<TViewModel>()
+                .Name(GridName)
+                .Columns(columns)
+                .ColumnMenu()
+                .Pageable(page => page.Refresh(true))
+                .Sortable()
+                .Filterable()
+                .DataSource(data =>
+                    data
+                        .Ajax()
+                        .Model(m => m.Id(modelIdExpression))
+                        .Read(read => read.Action("Read", controllerName, routeValues)));
+        }
+
         public static GridBuilder<TViewModel> LightFeaturedReadMethodSettableGridWithEditorTemplate<TViewModel>(this HtmlHelper helper, string gridName, string controllerName, string readAction, Expression<Func<TViewModel, object>> modelIdExpression, string editorTemplateName, object routeValues = null, Action<GridColumnFactory<TViewModel>> columns = null)
             where TViewModel : class
         {

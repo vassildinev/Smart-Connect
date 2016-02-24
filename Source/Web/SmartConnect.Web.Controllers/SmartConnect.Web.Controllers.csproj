@@ -141,6 +141,7 @@
     <Compile Include="Contracts\BaseAdministrationController.cs" />
     <Compile Include="Contracts\BaseAuthorizationController.cs" />
     <Compile Include="Contracts\BaseController.cs" />
+    <Compile Include="Contacts\ContactsAjaxController.cs" />
     <Compile Include="Contracts\IKendoGridController{TModel, TViewModel, TKey}.cs" />
     <Compile Include="Contracts\KendoGridAdministrationController.cs" />
     <Compile Include="Contracts\KendoGridController.cs" />
@@ -180,6 +181,10 @@
     <ProjectReference Include="..\..\Services\SmartConnect.Services.Deals\SmartConnect.Services.Deals.csproj">
       <Project>{99d6f7c9-fefe-4e95-a8f9-f0c8b70e3812}</Project>
       <Name>SmartConnect.Services.Deals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\SmartConnect.Services.Messages\SmartConnect.Services.Contacts.csproj">
+      <Project>{662ff6b7-3fa3-4215-b414-2a31028a0079}</Project>
+      <Name>SmartConnect.Services.Contacts</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Services\SmartConnect.Services.Obfuscators\SmartConnect.Services.Obfuscators.csproj">
       <Project>{4b073d46-7d57-43e5-bb48-b017e9180190}</Project>

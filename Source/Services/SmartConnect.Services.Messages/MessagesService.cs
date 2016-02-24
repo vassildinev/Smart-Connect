@@ -1,6 +1,7 @@
-﻿namespace SmartConnect.Services.Messages
+﻿namespace SmartConnect.Services.Contacts
 {
     using System;
+    using System.Data.Entity;
     using System.Linq;
     using Contracts;
     using Data.Models;
@@ -40,9 +41,19 @@
             this.messages.Delete(entity);
         }
 
+        public IQueryable<Message> GetByContactId(int contactId)
+        {
+            return this.messages.All().Where(x => x.ContactId == contactId);
+        }
+
         public Message GetById(int entityId)
         {
             return this.messages.GetById(entityId);
+        }
+
+        public IQueryable<Message> GetByUserIdUnread(string userId)
+        {
+            return this.messages.All().Where(m => !m.IsSeen && m.ReceiverId == userId);
         }
 
         public void HardDelete(int entityId)

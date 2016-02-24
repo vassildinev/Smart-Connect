@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{64619905-CE0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Web.App", "Web\SmartConnect.Web.App\SmartConnect.Web.App.csproj", "{EA935D4A-E5CF-4E4B-9BB4-AB7C8956F55C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Web.App.Tests", "Tests\SmartConnect.Web.App.Tests\SmartConnect.Web.App.Tests.csproj", "{CA5D37E1-FBAB-472F-BCD7-79848ED2EB95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Web.Controllers.Tests", "Tests\SmartConnect.Web.App.Tests\SmartConnect.Web.Controllers.Tests.csproj", "{CA5D37E1-FBAB-472F-BCD7-79848ED2EB95}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6223602F-9DBD-463E-9117-87AD0E26B2F7}"
 EndProject
@@ -56,6 +56,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Web.Extensions", "Web\SmartConnect.Web.Extensions\SmartConnect.Web.Extensions.csproj", "{E8779D45-FE8B-46E9-8DD7-545EC24D2733}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Services.Deals", "Services\SmartConnect.Services.Deals\SmartConnect.Services.Deals.csproj", "{99D6F7C9-FEFE-4E95-A8F9-F0C8B70E3812}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Services.Contacts", "Services\SmartConnect.Services.Messages\SmartConnect.Services.Contacts.csproj", "{662FF6B7-3FA3-4215-B414-2A31028A0079}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartConnect.Services.Users.Tests", "Tests\SmartConnect.Services.Users.Tests\SmartConnect.Services.Users.Tests.csproj", "{237B3EC5-C91E-4D6F-AFA0-B6388BE4514F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -151,6 +155,14 @@ Global
 		{99D6F7C9-FEFE-4E95-A8F9-F0C8B70E3812}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99D6F7C9-FEFE-4E95-A8F9-F0C8B70E3812}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99D6F7C9-FEFE-4E95-A8F9-F0C8B70E3812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{662FF6B7-3FA3-4215-B414-2A31028A0079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{662FF6B7-3FA3-4215-B414-2A31028A0079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{662FF6B7-3FA3-4215-B414-2A31028A0079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{662FF6B7-3FA3-4215-B414-2A31028A0079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{237B3EC5-C91E-4D6F-AFA0-B6388BE4514F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{237B3EC5-C91E-4D6F-AFA0-B6388BE4514F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{237B3EC5-C91E-4D6F-AFA0-B6388BE4514F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{237B3EC5-C91E-4D6F-AFA0-B6388BE4514F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -178,5 +190,7 @@ Global
 		{3ECD94BF-206A-47E9-8752-8882DC2E5C8B} = {1CD92A0A-5E2B-47D8-9B72-365CF0D284B9}
 		{E8779D45-FE8B-46E9-8DD7-545EC24D2733} = {64619905-CE03-4B5B-AA2F-6A1C8C4C38B5}
 		{99D6F7C9-FEFE-4E95-A8F9-F0C8B70E3812} = {1CD92A0A-5E2B-47D8-9B72-365CF0D284B9}
+		{662FF6B7-3FA3-4215-B414-2A31028A0079} = {1CD92A0A-5E2B-47D8-9B72-365CF0D284B9}
+		{237B3EC5-C91E-4D6F-AFA0-B6388BE4514F} = {6223602F-9DBD-463E-9117-87AD0E26B2F7}
 	EndGlobalSection
 EndGlobal

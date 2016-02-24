@@ -16,7 +16,7 @@
 
         public int DealId { get; set; }
 
-        public Deal Deal { get; set; }
+        public virtual Deal Deal { get; set; }
 
         public DateTime Deadline { get; set; }
 

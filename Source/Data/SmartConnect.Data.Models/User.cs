@@ -53,74 +53,74 @@
 
         public int? CountryId { get; set; }
 
-        public Country Country { get; set; }
+        public virtual Country Country { get; set; }
 
-        [Column(TypeName = "Date")]
+        [Column(TypeName = "Datetime")]
         public DateTime CreatedOn { get; set; }
 
-        [Column(TypeName = "Date")]
+        [Column(TypeName = "Datetime")]
         public DateTime? DeletedOn { get; set; }
 
         public bool IsDeleted { get; set; }
 
-        [Column(TypeName = "Date")]
+        [Column(TypeName = "Datetime")]
         public DateTime? ModifiedOn { get; set; }
 
-        public ICollection<Deal> DealsAsClient
+        public virtual ICollection<Deal> DealsAsClient
         {
             get { return this.dealsAsClient; }
             set { this.dealsAsClient = value; }
         }
 
-        public ICollection<Deal> DealsAsExecuter
+        public virtual ICollection<Deal> DealsAsExecuter
         {
             get { return this.dealsAsExecuter; }
             set { this.dealsAsExecuter = value; }
         }
 
-        public ICollection<DealRequest> DealRequestsSent
+        public virtual ICollection<DealRequest> DealRequestsSent
         {
             get { return this.dealRequestsSent; }
             set { this.dealRequestsSent = value; }
         }
 
-        public ICollection<DealRequest> DealRequestsReceived
+        public virtual ICollection<DealRequest> DealRequestsReceived
         {
             get { return this.dealRequestsReceived; }
             set { this.dealRequestsReceived = value; }
         }
 
-        public ICollection<Contact> ContactRequestsSent
+        public virtual ICollection<Contact> ContactRequestsSent
         {
             get { return this.contactRequestsSent; }
             set { this.contactRequestsSent = value; }
         }
 
-        public ICollection<Contact> ContactRequestsReceived
+        public virtual ICollection<Contact> ContactRequestsReceived
         {
             get { return this.contactRequestsReceived; }
             set { this.contactRequestsReceived = value; }
         }
 
-        public ICollection<Objective> Objectives
+        public virtual ICollection<Objective> Objectives
         {
             get { return this.objectives; }
             set { this.objectives = value; }
         }
 
-        public ICollection<Team> Teams
+        public virtual ICollection<Team> Teams
         {
             get { return this.teams; }
             set { this.teams = value; }
         }
 
-        public ICollection<Message> MessagesSent
+        public virtual ICollection<Message> MessagesSent
         {
             get { return this.messagesSent; }
             set { this.messagesSent = value; }
         }
 
-        public ICollection<Message> MessagesReceived
+        public virtual ICollection<Message> MessagesReceived
         {
             get { return this.messagesReceived; }
             set { this.messagesReceived = value; }

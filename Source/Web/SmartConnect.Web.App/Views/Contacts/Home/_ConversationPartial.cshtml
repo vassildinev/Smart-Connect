@@ -1,0 +1,14 @@
+﻿@using SmartConnect.Web.ViewModels.Contacts
+    @model ContactViewModel
+
+    <div class="text-center">
+        <h1>Conversation details</h1>
+        <hr />
+        <h2>@Model.Sender - @Model.Receiver</h2>
+        <div class="panel panel-default">
+            <div style="overflow-y:scroll;height:300px">
+                Messages here*
+            </div>
+            @*@Ajax.ActionLink("")*@
+        </div>
+    </div>
