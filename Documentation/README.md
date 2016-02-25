@@ -37,6 +37,8 @@ In the **Get in touch** section each internet user can send feedback.
 - AJAX loading
 
 ## Images ##
+![](https://rawgit.com/vassildinev/Smart-Connect/master/Documentation/home.png)
+![](https://rawgit.com/vassildinev/Smart-Connect/master/Documentation/dashboard.png)
 
 ## TODOs: ##
 - Contacts area - adding contacts, saving history, sending messages over web sockets using SignalR technology
