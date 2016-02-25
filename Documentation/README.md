@@ -6,7 +6,7 @@
 
 There are basically two main areas users can go to. They make their choice using the **Dashboard**.
 
-In the **Deals** area users can keep track of all deals they have been appointed for, or deals they themselves have posted. Based upon the success of the deal's executer, he/she can either "win" or "lose" the deal. In other words, it reflects the satisfaction of their client. Each deal consists of requirements, available for editing only by client, with priorities. Therefore only the client can decide whether they have been fulfilled or not. On the other hand, executers can add objectives with deadlines to organize their work. Deadlines can be easily followed directly from the home pageq where a red indicator will mark an upcoming deadline, which means an objective must be reviewed.
+In the **Deals** area users can keep track of all deals they have been appointed for, or deals they themselves have posted. Based upon the success of the deal's executer, he/she can either "win" or "lose" the deal. In other words, it reflects the satisfaction of their client. Each deal consists of requirements, available for editing only by client, with priorities. Therefore only the client can decide whether they have been fulfilled or not. On the other hand, executers can add objectives with deadlines to organize their work. Deadlines can be easily followed directly from the home page where a red indicator will mark an upcoming deadline, which means an objective must be reviewed.
 
 Each user can add new deals, send requests for deals and accept/decline such requests by other users for his/her posted deal. 
 
