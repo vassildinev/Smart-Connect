@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart-Connect | @ViewBag.Title</title>
-        @Styles.Render("~/Content/css")
-        @Styles.Render("~/Content/KendoCss")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/KendoCss")
     @RenderSection("styles", required: false)
 
     @Scripts.Render("~/bundles/jquery")
@@ -56,10 +56,9 @@
 
     <div class="site-body">
         @RenderBody()
-        <hr />
     </div>
-
     <footer>
+        <hr />
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
